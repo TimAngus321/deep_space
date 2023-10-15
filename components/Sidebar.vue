@@ -1,5 +1,7 @@
-<template>
-    <footer class="text-white">Made by Timothy Angus</footer>
+<template class="text-white">
+   <aside >
+
+   </aside>
 </template>
 
 <script setup>
