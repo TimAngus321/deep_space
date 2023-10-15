@@ -1,5 +1,5 @@
 <template>
-     <header>
+     <header class="text-white">
       <nav>
         <NuxtLink to="/">Home</NuxtLink>
         <NuxtLink to="/space-image-search">Search Nasa Images</NuxtLink>
