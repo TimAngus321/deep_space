@@ -1,5 +1,5 @@
 <template>
-  <aside class="h-full w-40 text-white">
+  <aside class="h-full flex basis-40 text-white">
     <div class="flex flex-col gap-4 px-5">
       <NuxtLink to="/" class=""><span>Home</span></NuxtLink>
       <NuxtLink to="/space-image-search"><span>Image Search</span></NuxtLink>

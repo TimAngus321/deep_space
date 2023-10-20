@@ -1,10 +1,12 @@
 <template>
-  <div class="bg-black h-screen w-screen flex flex-col">
-    <Header class/>
-    <Sidebar />
-    <slot class="v-full h-full"/>
+  <main class="bg-black h-screen flex flex-col">
+    <Header />
+    <div class="h-full flex">
+      <Sidebar />
+      <slot class="flex-grow"/>
+    </div>
     <Footer />
-  </div>
+  </main>
 </template>
 
 <style scoped></style>

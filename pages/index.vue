@@ -1,7 +1,9 @@
 <template>
-    <div class="text-white">
-        <h1>Home Page</h1>
-    </div>
+    <main class="flex flex-grow justify-center h-full text-white ">
+    <header class="flex justify-center">
+        <h1>Nasa Image Search App</h1>
+    </header>
+</main>
 </template>
 
 <script setup>
