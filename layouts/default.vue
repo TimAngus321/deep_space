@@ -2,7 +2,7 @@
   <div class="bg-black h-screen w-screen">
     <Header />
     <Sidebar />
-    <slot />
+    <slot class="v-full h-full"/>
     <Footer />
   </div>
 </template>

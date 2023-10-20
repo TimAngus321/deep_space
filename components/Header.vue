@@ -1,14 +1,19 @@
+<!-- 
+  Add profile avatar for personal profile dropdown
+
+ -->
 <template>
-     <header class="text-white">
+     <header class="w-full h-20 text-white">
       <nav>
-        <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/space-image-search">Search Nasa Images</NuxtLink>
+        
       </nav>
     </header>
 
 </template>
 
-<script setup></script>
+<script setup>
+
+</script>
 
 <style lang="scss" scoped>
 
