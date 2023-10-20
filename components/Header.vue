@@ -3,9 +3,9 @@
 
  -->
 <template>
-     <header class="w-full h-20 text-white">
+     <header class="w-full h-20 text-white flex justify-center">
       <nav>
-        
+        <h1>Nasa Image Header</h1>
       </nav>
     </header>
 
