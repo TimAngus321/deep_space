@@ -3,9 +3,9 @@
 
  -->
 <template>
-     <header class="h-20 text-white flex justify-center">
+     <header class="h-20 text-white flex justify-end">
       <nav>
-        <h1>Nasa Image Header</h1>
+        <p class="p-2">Profile</p>
       </nav>
     </header>
 
