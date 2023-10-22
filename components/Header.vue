@@ -3,19 +3,15 @@
 
  -->
 <template>
-     <header class="h-20 text-white flex justify-end">
-      <nav>
-        <p class="p-2">Profile</p>
-      </nav>
-    </header>
-
+  <header class="h-20 text-textDefault bg-primary flex justify-end">
+    <nav class="flex flex-row gap-6 p-2 pr-5 align-middle items-center">
+      <NuxtLink to="/" class="align"><span>Home</span></NuxtLink>
+      <NuxtLink to="/space-image-search"><span>Image Search</span></NuxtLink>
+      <p>Profile</p>
+    </nav>
+  </header>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-
-</style>
+<style lang="scss" scoped></style>
