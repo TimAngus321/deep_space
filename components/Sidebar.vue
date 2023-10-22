@@ -1,6 +1,6 @@
 <template>
   <aside class="h-full flex basis-20 text-textDefault bg-secondary">
-    <div class="flex flex-col-reverse gap-8 p-5">
+    <div class="flex flex-col-reverse gap-8 p-7">
       <a href="https://www.linkedin.com/in/timothy-angus-b94969113/">
         <img src="@/assets/icons/linkedin-original.svg" alt="Linkedin" />
       </a>
