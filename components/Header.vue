@@ -7,7 +7,7 @@
     <nav class="flex flex-row gap-6 p-2 pr-5 align-middle items-center">
       <NuxtLink to="/" class="align"><span>Home</span></NuxtLink>
       <NuxtLink to="/space-image-search"><span>Image Search</span></NuxtLink>
-      <Icon name="material-symbols:account-circle" />
+      <NuxtLink to="/profile"><Icon name="material-symbols:account-circle" /></NuxtLink>
     </nav>
   </header>
 </template>
