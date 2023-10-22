@@ -1,5 +1,5 @@
 <template>
-    <main class="flex flex-col gap-4  flex-grow h-full text-textDefault">
+    <main class="flex flex-col gap-4 flex-grow h-full text-textDefault p-6">
     <header class="flex justify-center">
         <h1 class="p-2">Nasa Image Search App</h1>
     </header>
