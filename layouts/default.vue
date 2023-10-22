@@ -1,10 +1,11 @@
 <template>
-  <div class="bg-black h-screen w-screen">
+  <main class="bg-secondary h-screen flex flex-col">
     <Header />
-    <Sidebar />
-    <slot />
-    <Footer />
-  </div>
+    <div class="h-full flex pr-20">
+      <Sidebar />
+      <slot class="flex-grow"/>
+    </div>
+  </main>
 </template>
 
 <style scoped></style>
