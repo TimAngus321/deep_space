@@ -6,7 +6,7 @@
     <section>
 
       <input type="text" />
-      <Icon name="ic:round-search" />
+      <UButton icon="i-heroicons-magnifying-glass" />
     </section>
   </main>
 </template>

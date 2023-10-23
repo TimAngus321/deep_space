@@ -13,8 +13,8 @@
 
 export default defineAppConfig({
   ui: {
-    primary: "#0A1A2E",
-      secondary: "#162B46",
+    primary: "green",
+      gray: "cool",
       focus: "#60F7D4",
       textDefault: "#FFFFFF",
   }
