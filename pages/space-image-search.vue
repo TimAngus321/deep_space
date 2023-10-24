@@ -1,7 +1,7 @@
 <template>
   <main>
     <header class="flex justify-center">
-      <h1 class="p-2">Search Page</h1>
+      <h1 class="p-2">Search Deep Space</h1>
     </header>
     <section>
       <UInput
@@ -16,6 +16,8 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+  await useFetch('')
+</script>
 
 <style lang="scss" scoped></style>
