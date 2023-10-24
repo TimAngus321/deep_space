@@ -1,5 +1,5 @@
 <template>
-    <main class="flex flex-col gap-4 flex-grow h-full text-textDefault p-6">
+    <main>
     <header class="flex justify-center">
         <h1 class="p-2">Nasa Image Search App</h1>
     </header>
@@ -10,7 +10,9 @@
 </template>
 
 <script setup>
+const appConfig = useAppConfig()
 
+console.log(appConfig.theme)
 </script>
 
 <style lang="scss" scoped>

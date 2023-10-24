@@ -3,11 +3,25 @@
 
  -->
 <template>
-  <header class="h-20 text-textDefault bg-primary flex justify-end">
-    <nav class="flex flex-row gap-6 p-2 pr-5 align-middle items-center">
-      <NuxtLink to="/" class="align"><span>Home</span></NuxtLink>
-      <NuxtLink to="/space-image-search"><span>Image Search</span></NuxtLink>
-      <Icon name="material-symbols:account-circle" />
+  <header
+    class="ui-gray h-20 bg-gray-100 dark:bg-gray-800 text-textDefault bg-theme-gray"
+  >
+    <nav class="flex flex-row h-full w-full p-7 pr-10 items-center">
+      <div class="flex h-full w-full items-center ">
+        <ColorModeBtn />
+      </div>
+      <div class="flex items-center justify-end w-full gap-8">
+        <NuxtLink to="/" class="hover:text-primary">Home</NuxtLink>
+        <NuxtLink to="/space-image-search" class="hover:text-primary"
+          >Image Search</NuxtLink
+        >
+        <NuxtLink to="/profile" class="hover:text-primary"
+          ><UAvatar
+            class="flex align-middle"
+            src="https://avatars.githubusercontent.com/u/739984?v=4"
+            alt="Avatar"
+        /></NuxtLink>
+      </div>
     </nav>
   </header>
 </template>

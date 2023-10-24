@@ -1,16 +1,23 @@
 <template>
-  <main class="flex flex-col gap-4 flex-grow h-full text-textDefault p-6">
+  <main>
     <header class="flex justify-center">
-      <h1 class="p-2">Search Page</h1>
+      <h1 class="p-2">Search Deep Space</h1>
     </header>
     <section>
-
-      <input type="text" />
-      <Icon name="ic:round-search" />
+      <UInput
+        icon="i-heroicons-magnifying-glass-20-solid"
+        size="sm"
+        color="white"
+        :trailing="false"
+        name="input"
+        placeholder="Search..."
+      />
     </section>
   </main>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+  await useFetch('')
+</script>
 
 <style lang="scss" scoped></style>
