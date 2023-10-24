@@ -1,17 +1,23 @@
-<script setup>
-const items = [{
-  label: 'Tab1',
-  content: 'This is the content shown for Tab1'
-}, {
-  label: 'Tab2',
-  disabled: true,
-  content: 'And, this is the content for Tab2'
-}, {
-  label: 'Tab3',
-  content: 'Finally, this is the content for Tab3'
-}]
+<script setup lang="ts">
+const items = [
+  {
+    label: "Recently Searched",
+    content: "Last 4 image/video search results",
+  },
+  {
+    label: "Favorites",
+    content: "All favorite images/videos",
+  },
+  {
+    label: "Settings if any",
+    content: "Profile settings",
+  },
+];
 </script>
 
 <template>
-  <UTabs :items="items" />
+  <main class="flex flex-col gap-6">
+    <h1 class="flex justify-center">Personal Profile</h1>
+    <UTabs :items="items" />
+  </main>
 </template>
