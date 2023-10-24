@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true }, 
   modules: [
     'nuxt-icon',
-    "@nuxt/ui"
+    "@nuxt/ui",
+    "@nuxtjs/color-mode"
   ]
 })
 

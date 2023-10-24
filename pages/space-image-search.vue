@@ -1,12 +1,17 @@
 <template>
-  <main class="flex flex-col gap-4 flex-grow h-full text-textDefault p-6">
+  <main>
     <header class="flex justify-center">
       <h1 class="p-2">Search Page</h1>
     </header>
     <section>
-
-      <input type="text" />
-      <UButton icon="i-heroicons-magnifying-glass" />
+      <UInput
+        icon="i-heroicons-magnifying-glass-20-solid"
+        size="sm"
+        color="white"
+        :trailing="false"
+        name="input"
+        placeholder="Search..."
+      />
     </section>
   </main>
 </template>
