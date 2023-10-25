@@ -20,13 +20,11 @@
 
 <script setup lang="ts">
 
-  const config = useRuntimeConfig()
-  const apiKey: string | unknown = config.public.apiKey;
-  const url: string = "https://images-api.nasa.gov/search?q="
-  const searchQuery: string = "pillars"
+  // const url: string = "https://images-api.nasa.gov/search?q="
+  // const searchQuery: string = "pillars"
 
-  const {data: images}: any =  await useFetch(`${url}${searchQuery}`)
-  console.log('images ', images)
+  // const {data: images}: any =  await useFetch(`${url}${searchQuery}`)
+  // console.log('images ', images)
 
 </script>
 
