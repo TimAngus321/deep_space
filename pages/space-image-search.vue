@@ -1,7 +1,7 @@
 <template>
   <main class="flex flex-col gap-6">
     <header class="flex justify-center">
-      <h1 class="p-2">Search Deep Space</h1>
+      <h1 class="p-2 text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">Search Deep Space</h1>
     </header>
 
     <UContainer padding="0" class="flex flex-row w-full h-full items-center">
