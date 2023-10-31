@@ -5,12 +5,13 @@
     </header>
 
     <UContainer padding="0" class="flex flex-row w-full h-full items-center">
-      <section>
-        <div>
+      <section class="w-full h-full">
+        <div class="flex flex-row flex-shrink gap-6 w-full">
           <UInput
+            class="flex-grow-3 w-full"
             v-model="q"
             name="q"
-            placeholder="Search..."
+            placeholder="Search deep space..."
             icon="i-heroicons-magnifying-glass-20-solid"
             :ui="{ icon: { trailing: { pointer: '' } } }"
           >
@@ -25,20 +26,41 @@
               />
             </template>
           </UInput>
+          <UButton
+            @click="searchNasaLibrary(q)"
+            class="flex-grow-1"
+            label="Search"
+          />
         </div>
-        <div class="grid grid-cols-4 gap-5"></div>
+        <div class="grid grid-cols-4 gap-5 w-full h-full">
+         
+        </div>
       </section>
     </UContainer>
   </main>
 </template>
 
 <script setup lang="ts">
-const q = ref('')
-// const url: string = "https://images-api.nasa.gov/search?q="
-// const searchQuery: string = "pillars"
+const q: any = ref("");
 
-// const {data: images}: any =  await useFetch(`${url}${searchQuery}`)
-// console.log('images ', images)
+const url: string = "https://images-api.nasa.gov/search?q=";
+let searchResult: string;
+
+const searchNasaLibrary = async (searchQuery: any) => {
+  const { data: images }: any = await useFetch(`${url}${searchQuery}`);
+  searchResult = images?._rawValue?.collection?.items[0];
+  console.log("image ", images);
+  console.log("searchResult ", searchResult);
+};
+
+// <NuxtPicture
+//             format="avif,webp,jpg"
+//             :src="searchResult"
+//             sizes="100vw"
+//             height="400px"
+//           />
+
 </script>
 
 <style lang="scss" scoped></style>
+

@@ -5,30 +5,32 @@
     </header>
 
     <UContainer padding="0" class="flex flex-row w-full h-full items-center">
-      <div class="flex flex-col p-2 gap-6 justify-center">
+      <div class="flex flex-col flex-grow-1 p-2 gap-6 justify-center">
         <h3>
           This app allows you to search for cool space images from Nasa's APIs.
         </h3>
         <p>Purpose of this app:</p>
         <p>ToDo:</p>
       </div>
+      <div class="flex flex-grow-3">
       <div v-if="isImg">
         <NuxtPicture
           format="avif,webp,jpg"
           :src="dailyImageVideo"
           sizes="100vw"
-          height="400px"
+          height="100%"
         />
       </div>
       <div v-else class="w-full">
         <iframe
           width="100%"
-          height="400px"
+          height="100%"
           :src="dailyImageVideo"
           frameborder="0"
           allowfullscreen
         ></iframe>
       </div>
+    </div>
     </UContainer>
   </main>
 </template>
