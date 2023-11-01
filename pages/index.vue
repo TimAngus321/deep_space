@@ -12,7 +12,7 @@
       padding="0"
       class="flex flex-row w-full h-full items-center gap-20"
     >
-      <div class="flex flex-col flex-grow-1 p-2 gap-6 justify-start">
+      <div class="flex flex-col flex-grow-1 p-2 gap-4 justify-start">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-400 tracking-tight dark:text-slate-200"
         >
