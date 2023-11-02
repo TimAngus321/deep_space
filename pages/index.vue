@@ -10,11 +10,11 @@
 
     <UContainer
       padding="0"
-      class="flex flex-row w-full h-full items-center gap-20"
+      class="flex flex-row w-full h-full items-center gap-20 max-w-full"
     >
       <div class="flex flex-col flex-grow-1 p-2 gap-4 justify-start">
         <h3
-          class="p-2 text-1xl sm:text-3xl font-bold text-slate-400 tracking-tight dark:text-slate-200"
+          class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
           About App
         </h3>
@@ -23,7 +23,7 @@
           and create a profile where you can save your favorite finds.
         </p>
         <h3
-          class="p-2 text-1xl sm:text-3xl font-bold text-slate-400 tracking-tight dark:text-slate-200"
+          class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
           Purpose of this app:
         </h3>
@@ -32,7 +32,7 @@
           Vercel. 
         </p>
         <h3
-          class="p-2 text-1xl sm:text-3xl font-bold text-slate-400 tracking-tight dark:text-slate-200"
+          class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
           ToDo:
         </h3>
