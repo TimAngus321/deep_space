@@ -10,9 +10,9 @@
 
     <UContainer
       padding="0"
-      class="flex flex-row w-full h-full items-center gap-20 max-w-full"
+      class="flex flex-row w-full h-full items-center gap-20 max-w-full max-h-full"
     >
-      <div class="flex flex-col flex-grow-1 p-2 gap-4 justify-start">
+      <div class="flex flex-col flex-grow-1 p-2 gap-4 w-full justify-start">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
@@ -46,21 +46,20 @@
             </ul>
         </p>
       </div>
-      <div class="flex flex-grow-3 justify-start">
-        <div v-if="isImg">
+      <div class="flex flex-grow-3 justify-end w-full">
+        <div v-if="isImg" class="flex flex-wrap w-full h-full content-center">
           <NuxtPicture
+            fit="contain"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            sizes="100vw sm:50vw md:600px"
-            width="800"
-            height="400"
+            width="800px"
+            height="400px"
           />
         </div>
-        <div v-else class="w-full">
+        <div v-else class="flex flex-wrap w-full max-h-fit content-center">
           <iframe
-            sizes="100vw sm:50vw md:600px"
-            width="800"
-            height="400"
+            width="800px"
+            height="400px"
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
