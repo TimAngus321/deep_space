@@ -39,7 +39,9 @@
             label="Search"
           />
         </div>
-        <div class="grid grid-cols-4 gap-5 w-full h-full"></div>
+        <div class="grid grid-cols-4 gap-5 w-full h-full">
+          
+        </div>
       </section>
     </UContainer>
   </main>
@@ -47,14 +49,47 @@
 
 <script setup lang="ts">
 const q: any = ref("");
-const url: string = "https://images-api.nasa.gov/search?q=";
+const url: string = "https://images-api.nasa.gov/search?media_type=q=";
+const extraParams: string = "&media_type=image"
+
+const data = [
+  // Your object data here
+];
+
+interface ThumbnailInfo {
+  thumbnail: string;
+  nasa_id: string;
+}
+
+const thumbnailInfoList: ThumbnailInfo[] = [];
 let searchResult: string;
+let imageData: any;
 
 const searchNasaLibrary = async (searchQuery: any) => {
-  const { data: images }: any = await useFetch(`${url}${searchQuery}`);
+  const { data: images }: any = await useFetch(`${url}${searchQuery}${extraParams}`);
   searchResult = images?._rawValue?.collection?.items[0];
-  console.log("image ", images);
+  imageData = images?._rawValue?.collection?.items;
+  console.log("imageData ", imageData);
   console.log("searchResult ", searchResult);
+
+  for (const item of imageData) {
+  const dataItems = item.data;
+  const links = item.links;
+
+  for (const dataItem of dataItems) {
+    if (dataItem.hasOwnProperty('nasa_id') && dataItem.nasa_id) {
+      for (const link of links) {
+        if (link.rel === 'preview' && link.render === 'image') {
+          thumbnailInfoList.push({
+            thumbnail: link.href,
+            nasa_id: dataItem.nasa_id,
+          });
+          console.log("thumbnail info ", thumbnailInfoList);
+        }
+      }
+    }
+  }
+}
 };
 
 // <NuxtPicture
