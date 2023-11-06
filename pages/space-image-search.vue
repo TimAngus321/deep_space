@@ -40,11 +40,19 @@
             label="Search"
           />
         </div>
-          <div v-if="!isFetching" class="grid grid-cols-4 gap-5">
-            <div v-for="thumbnailInfo in thumbnailInfoList">
-              <SearchThumbnails :thumbInfo="thumbnailInfo" />
-            </div>
+        <!-- 
+          
+        * Use https://esahubble.org/images/search/ to add categories to create
+        search for glaxy/nebula etc only 
+
+        * Check net ninja vue 3 fetching data for why this is buggy
+      
+      -->
+        <div v-if="!isFetching" class="grid grid-cols-4 gap-5">
+          <div v-for="(thumbnailInfo, index) in thumbnailInfoList" :key="index">
+            <ThumbnailImages :thumbInfo="thumbnailInfo" />
           </div>
+        </div>
       </section>
     </UContainer>
   </main>
@@ -60,12 +68,13 @@ interface ThumbnailInfo {
   nasa_id: string;
 }
 
-const thumbnailInfoList: ThumbnailInfo[] = [];
+let thumbnailInfoList: ThumbnailInfo[] = [];
 let imageData: any;
 let isFetching: boolean;
 
 const searchNasaLibrary = async (searchQuery: any) => {
   isFetching = true;
+  thumbnailInfoList = [];
   console.log(`${url}${searchQuery}${extraParams}`);
   const { data: images }: any = await useFetch(
     `${url}${searchQuery}${extraParams}`
@@ -89,7 +98,6 @@ const searchNasaLibrary = async (searchQuery: any) => {
       }
     }
   }
-  
   console.log("thumbnail info ", thumbnailInfoList);
   isFetching = false;
 };
@@ -100,7 +108,6 @@ const searchNasaLibrary = async (searchQuery: any) => {
 //             sizes="100vw"
 //             height="400px"
 //           />
-
 </script>
 
 <style lang="scss" scoped></style>
