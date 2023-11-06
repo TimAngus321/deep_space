@@ -21,6 +21,7 @@
             icon="i-heroicons-magnifying-glass-20-solid"
             :ui="{ icon: { trailing: { pointer: '' } } }"
             @keyup.enter="searchNasaLibrary(q)"
+            :loading="isFetching"
           >
             <template #trailing>
               <UButton
@@ -39,9 +40,11 @@
             label="Search"
           />
         </div>
-        <div class="grid grid-cols-4 gap-5 w-full h-full">
-          
-        </div>
+          <div v-if="!isFetching" class="grid grid-cols-4 gap-5">
+            <div v-for="thumbnailInfo in thumbnailInfoList">
+              <SearchThumbnails :thumbInfo="thumbnailInfo" />
+            </div>
+          </div>
       </section>
     </UContainer>
   </main>
@@ -49,12 +52,8 @@
 
 <script setup lang="ts">
 const q: any = ref("");
-const url: string = "https://images-api.nasa.gov/search?media_type=q=";
-const extraParams: string = "&media_type=image"
-
-const data = [
-  // Your object data here
-];
+const url: string = "https://images-api.nasa.gov/search?q=";
+const extraParams: string = "&media_type=image";
 
 interface ThumbnailInfo {
   thumbnail: string;
@@ -62,34 +61,37 @@ interface ThumbnailInfo {
 }
 
 const thumbnailInfoList: ThumbnailInfo[] = [];
-let searchResult: string;
 let imageData: any;
+let isFetching: boolean;
 
 const searchNasaLibrary = async (searchQuery: any) => {
-  const { data: images }: any = await useFetch(`${url}${searchQuery}${extraParams}`);
-  searchResult = images?._rawValue?.collection?.items[0];
-  imageData = images?._rawValue?.collection?.items;
-  console.log("imageData ", imageData);
-  console.log("searchResult ", searchResult);
+  isFetching = true;
+  console.log(`${url}${searchQuery}${extraParams}`);
+  const { data: images }: any = await useFetch(
+    `${url}${searchQuery}${extraParams}`
+  );
+  imageData = await images?._rawValue?.collection?.items;
 
   for (const item of imageData) {
-  const dataItems = item.data;
-  const links = item.links;
+    const dataItems = item.data;
+    const links = item.links;
 
-  for (const dataItem of dataItems) {
-    if (dataItem.hasOwnProperty('nasa_id') && dataItem.nasa_id) {
-      for (const link of links) {
-        if (link.rel === 'preview' && link.render === 'image') {
-          thumbnailInfoList.push({
-            thumbnail: link.href,
-            nasa_id: dataItem.nasa_id,
-          });
-          console.log("thumbnail info ", thumbnailInfoList);
+    for (const dataItem of dataItems) {
+      if (dataItem.hasOwnProperty("nasa_id") && dataItem.nasa_id) {
+        for (const link of links) {
+          if (link.rel === "preview" && link.render === "image") {
+            thumbnailInfoList.push({
+              thumbnail: link.href,
+              nasa_id: dataItem.nasa_id,
+            });
+          }
         }
       }
     }
   }
-}
+  
+  console.log("thumbnail info ", thumbnailInfoList);
+  isFetching = false;
 };
 
 // <NuxtPicture
@@ -98,6 +100,7 @@ const searchNasaLibrary = async (searchQuery: any) => {
 //             sizes="100vw"
 //             height="400px"
 //           />
+
 </script>
 
 <style lang="scss" scoped></style>
