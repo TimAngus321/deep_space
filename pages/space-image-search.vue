@@ -62,24 +62,27 @@
 const q: any = ref("");
 const url: string = "https://images-api.nasa.gov/search?q=";
 const extraParams: string = "&media_type=image";
+const thumbnailInfoList: ThumbnailInfo[] = useState('thumbnailInfoList')
 
 interface ThumbnailInfo {
   thumbnail: string;
   nasa_id: string;
 }
 
-let thumbnailInfoList: ThumbnailInfo[] = [];
+// let thumbnailInfoList: ThumbnailInfo[] = [];
 let imageData: any;
 let isFetching: boolean;
 
 const searchNasaLibrary = async (searchQuery: any) => {
   isFetching = true;
-  thumbnailInfoList = [];
   console.log(`${url}${searchQuery}${extraParams}`);
-  const { data: images }: any = await useFetch(
-    `${url}${searchQuery}${extraParams}`
+  const { pending, data: images }: any = await useFetch(`${url}${searchQuery}${extraParams}`, {
+  lazy: true,
+  server: false
+}
   );
   imageData = await images?._rawValue?.collection?.items;
+  console.log(imageData);
 
   for (const item of imageData) {
     const dataItems = item.data;
@@ -108,6 +111,54 @@ const searchNasaLibrary = async (searchQuery: any) => {
 //             sizes="100vw"
 //             height="400px"
 //           />
+
+// export default {
+//   const searchNasaLibrary = async (searchQuery: any) => {
+//   isFetching = true;
+//   thumbnailInfoList = [];
+//   console.log(`${url}${searchQuery}${extraParams}`);
+//   try {
+//   const { data: images }: any = await useFetch(
+//     `${url}${searchQuery}${extraParams}`
+//   );
+//   if (response.ok) {
+//   imageData = await images?._rawValue?.collection?.items;
+
+//   for (const item of imageData) {
+//     const dataItems = item.data;
+//     const links = item.links;
+
+//     for (const dataItem of dataItems) {
+//       if (dataItem.hasOwnProperty("nasa_id") && dataItem.nasa_id) {
+//         for (const link of links) {
+//           if (link.rel === "preview" && link.render === "image") {
+//             thumbnailInfoList.push({
+//               thumbnail: link.href,
+//               nasa_id: dataItem.nasa_id,
+//             });
+//           }
+//         }
+//       }
+//     }
+//   }
+// } else {
+//   console.error('Failed to fetch data');
+// }
+
+// } catch (error) {
+//       console.error('Error:', error);
+//     }
+
+//     console.log("thumbnail info ", thumbnailInfoList);
+//   isFetching = false;
+
+//   data() {
+//     return {
+//       data: [],
+//     };
+//   },
+
+// };
 </script>
 
 <style lang="scss" scoped></style>
