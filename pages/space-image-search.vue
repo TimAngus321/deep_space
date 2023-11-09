@@ -46,6 +46,8 @@
         search for glaxy/nebula etc only 
 
         * Check net ninja vue 3 fetching data for why this is buggy
+
+        * use grid masonary layout for different scale images and no weird gaps
       
       -->
         <div v-if="!isFetching" class="grid grid-cols-4 gap-5">
