@@ -8,11 +8,10 @@
       </h1>
     </header>
 
-    <UContainer
-      padding="0"
-      class="flex flex-row w-full h-full items-center gap-20 max-w-full max-h-full"
+    <div
+      class="flex flex-row h-full justify-between gap-20 w-full p-4"
     >
-      <div class="flex flex-col flex-grow-1 p-2 gap-4 w-full justify-start">
+      <div class="flex flex-col flex-wrap p-2 gap-4 w-6/12 self-center">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
@@ -46,27 +45,25 @@
             </ul>
         </p>
       </div>
-      <div class="flex flex-grow-3 justify-end w-full">
-        <div v-if="isImg" class="flex flex-wrap w-full h-full content-center">
+      <div class="flex w-6/12">
+        <div v-if="isImg" class="w-full">
           <NuxtPicture
-            fit="contain"
+            fit="cover"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            width="800px"
-            height="400px"
+            class="h-full w-full flex justify-center"
           />
         </div>
-        <div v-else class="flex flex-wrap w-full max-h-fit content-center">
+        <div v-else class="w-full">
           <iframe
-            width="800px"
-            height="400px"
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
+            class="h-full w-full flex justify-center"
           ></iframe>
         </div>
       </div>
-    </UContainer>
+    </div>
   </main>
 </template>
 
