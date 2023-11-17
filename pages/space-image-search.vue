@@ -48,6 +48,8 @@
         * Check net ninja vue 3 fetching data for why this is buggy
 
         * use grid masonary layout for different scale images and no weird gaps
+
+        * Sort out useState composable properly and use here so images render properly
       
       -->
         <div v-if="!isFetching" class="grid grid-cols-4 gap-5">
