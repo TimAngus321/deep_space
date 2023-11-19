@@ -1,3 +1,4 @@
+<!-- use useHead to target style of whole html -->
 <template >
   <main class="dark:bg-gray-800 h-screen flex flex-col">
     <Header />
