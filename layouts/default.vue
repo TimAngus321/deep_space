@@ -1,8 +1,8 @@
-import { _backgroundColor } from '#tailwind-config/theme';
-<template>
+<!-- use useHead to target style of whole html -->
+<template >
   <main class="dark:bg-gray-800 h-screen flex flex-col">
     <Header />
-    <div class="h-full flex pr-10">
+    <div class="h-full flex pr-10 dark:bg-gray-800">
       <Sidebar />
       <div class="flex flex-col flex-grow h-full w-full text-textDefault p-6 dark:bg-gray-800">
         <slot />
