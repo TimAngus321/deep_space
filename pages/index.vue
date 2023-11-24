@@ -46,12 +46,12 @@
         </p>
       </div>
       <div class="flex w-6/12">
-        <div v-if="isImg" class="w-full">
+        <div v-if="isImg" class="flex flex-wrap w-full object-contain content-center">
           <NuxtPicture
             fit="cover"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            class="h-full w-full flex justify-center"
+            class="w-full flex justify-center"
           />
         </div>
         <div v-else class="w-full">
@@ -59,7 +59,7 @@
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
-            class="h-full w-full flex justify-center"
+            class="w-full flex justify-center"
           ></iframe>
         </div>
       </div>
