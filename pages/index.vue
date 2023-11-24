@@ -35,15 +35,6 @@
         >
           ToDo:
         </h3>
-        <p class="p-2">
-            <ul class="list-disc p-2">
-                <li>Create layout and structure of profile favs, recently searched and settings if any.</li>
-                <li>If it makes sense set up MongoDB Atlas and GraphQL for database and fetching data from DB</li>
-                <li>Set up docker for Nuxt</li>
-                <li>Improve layout and tailwind setup</li>
-                <li>Cleanup code</li>
-            </ul>
-        </p>
       </div>
       <div class="flex w-6/12">
         <div v-if="isImg" class="flex flex-wrap w-full object-contain content-center">
@@ -68,6 +59,9 @@
 </template>
 
 <script setup lang="ts">
+// use state & date to ensure that request it only sent once a day.
+// If date is not the same as new Date or dailyImageVideo has no value run a new request
+
 const config = useRuntimeConfig();
 const apiKey: string = config.public.apiKey;
 const url: string = `https://api.nasa.gov/planetary/apod?api_key=`;

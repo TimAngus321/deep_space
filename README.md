@@ -2,7 +2,11 @@
 
 # TODO: 
 
-- 
+- Create layout and structure of profile favs, recently searched and settings if any.
+- If it makes sense set up MongoDB Atlas and GraphQL for database and fetching data from DB
+- Set up docker for Nuxt
+- Improve layout and tailwind setup
+- Cleanup code
 
 # Default Nuxt Info Geneated
 # Nuxt 3 Minimal Starter
@@ -10,6 +14,8 @@
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
+
+This app uses bun so if you want to install locally you must ensure you install bun on your machine before running any of the following commands.
 
 Make sure to install the dependencies:
 
@@ -53,4 +59,3 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
