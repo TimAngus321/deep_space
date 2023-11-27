@@ -18,23 +18,19 @@
           About App
         </h3>
         <p class="p-2">
-          This app allows you to search for cool space images from Nasa's APIs
-          and create a profile where you can save your favorite finds.
+          This app allows you to search for incredible images of deep space using Nasa's APIs
+          and create a profile where you can save your favorite finds. This app can also be extended
+          to use other APIs to search for comets or get updates for various space projects.
         </p>
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
-          Purpose of this app:
+          Technology focus of this app:
         </h3>
         <p class="p-2">
-          To try out Nuxt, Vue, Tailwind, GraphQL, Docker and MongoDB Atlas hosted on
-          Vercel. 
+          This app uses Nuxt, Vue, Tailwind, GraphQL, Docker and MongoDB Atlas as a tech stack and will
+          be hosted on Vercel. 
         </p>
-        <h3
-          class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
-        >
-          ToDo:
-        </h3>
       </div>
       <div class="flex w-6/12">
         <div v-if="isImg" class="flex flex-wrap w-full object-contain content-center">

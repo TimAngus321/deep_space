@@ -68,12 +68,15 @@ const url: string = "https://images-api.nasa.gov/search?q=";
 const extraParams: string = "&media_type=image";
 const thumbnailInfoList: ThumbnailInfo[] = useState('thumbnailInfoList')
 
+
+// Comment out from here
 interface ThumbnailInfo {
   thumbnail: string;
   nasa_id: string;
 }
 
 // let thumbnailInfoList: ThumbnailInfo[] = [];
+// Move this into composable? Trigger when click? 
 let imageData: any;
 let isFetching: boolean;
 
@@ -108,6 +111,8 @@ const searchNasaLibrary = async (searchQuery: any) => {
   console.log("thumbnail info ", thumbnailInfoList);
   isFetching = false;
 };
+
+// To here if composable works as expected
 
 // <NuxtPicture
 //             format="avif,webp,jpg"
