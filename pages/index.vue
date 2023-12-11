@@ -38,15 +38,15 @@
             fit="cover"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            class="w-full flex justify-center"
+            class="w-full h-full flex justify-center"
           />
         </div>
-        <div v-else class="w-full">
+        <div v-else class="flex flex-wrap w-full object-contain content-center">
           <iframe
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
-            class="w-full flex justify-center"
+            class="w-full h-full flex justify-center"
           ></iframe>
         </div>
       </div>
