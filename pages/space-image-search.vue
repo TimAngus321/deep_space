@@ -51,9 +51,9 @@
         * Sort out useState composable properly and use here so images render properly
       
       -->
-        <div v-if="nasaLibraryImages" class="grid grid-cols-4 gap-5">
+        <div v-if="data" class="grid grid-cols-4 gap-5">
           <div
-            v-for="(thumbnailInfoList, index) in nasaLibraryImages"
+            v-for="(thumbnailInfoList, index) in data"
             :key="index"
           >
             <ThumbnailImages :thumbInfo="thumbnailInfoList" />
@@ -68,12 +68,23 @@
 const q: any = ref("");
 // const url: string = "https://images-api.nasa.gov/search?q=";
 // const extraParams: string = "&media_type=image";
+const { thumbnailInfoList: any } = useNasaImgSearch(q)
+const data: any = ref(null)
 
 const searchNasaLibrary: any = async (q: any) => {
-   const thumbnailInfoList = await useNasaImgSearch(q);
-   return thumbnailInfoList;
+  try {
+   const result = await useNasaImgSearch(q);
+   data.value = result;
+   console.log(data.value.thumbnailInfoList[0]);
+  } catch (err) {
+    console.log(err)
+  }
+  return {
+    searchNasaLibrary, 
+    data,
+  }
 };
-const {data: nasaLibraryImages} = ref(await searchNasaLibrary());
+
 console.log()
 
 // Comment out from here
