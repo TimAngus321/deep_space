@@ -31,6 +31,14 @@
           This app uses Nuxt, Vue, Tailwind, GraphQL, Docker and MongoDB Atlas as a tech stack and will
           be hosted on Vercel. 
         </p>
+        <h3
+          class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
+        >
+          Ideas to add:
+        </h3>
+        <p class="p-2">
+          Use Pinia for state management and allow use more Nasa APIs for space info!
+        </p>
       </div>
       <div class="flex w-6/12">
         <div v-if="isImg" class="flex flex-wrap w-full object-contain content-center">
@@ -38,7 +46,7 @@
             fit="cover"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            class="w-full h-full flex justify-center"
+            class="w-full flex justify-center"
           />
         </div>
         <div v-else class="flex flex-wrap w-full object-contain content-center">
@@ -46,7 +54,7 @@
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
-            class="w-full h-full flex justify-center"
+            class="w-full flex justify-center"
           ></iframe>
         </div>
       </div>
