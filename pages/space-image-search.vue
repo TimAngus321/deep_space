@@ -56,7 +56,7 @@
             v-for="(thumbnailInfoList, index) in data"
             :key="index"
           >
-            <ThumbnailImages :thumbInfo="thumbnailInfoList" />
+            <ThumbnailImages :thumbInfo="thumbnailInfoList?.thumbnail" />
           </div>
         </div>
       </section>
