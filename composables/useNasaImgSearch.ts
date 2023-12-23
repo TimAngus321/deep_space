@@ -47,8 +47,7 @@ export const useNasaImgSearch = async (searchQuery: any) => {
     }
   }
   console.log("thumbnail info ", thumbnailInfoList);
-  isFetching = false;
-  if (!isFetching) {
+  
   return { thumbnailInfoList };
-  }
+
 };

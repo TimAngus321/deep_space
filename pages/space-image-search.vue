@@ -51,13 +51,8 @@
         * Sort out useState composable properly and use here so images render properly
       
       -->
-        <div v-if="data" class="grid grid-cols-4 gap-5">
-          <div
-            v-for="(thumbnailInfoList, index) in data"
-            :key="index"
-          >
-            <ThumbnailImages :thumbInfo="thumbnailInfoList?.thumbnail" />
-          </div>
+        <div >
+            <ThumbnailImages :thumbnailInfo="thumbnailInfo?.value" />
         </div>
       </section>
     </UContainer>
@@ -65,127 +60,26 @@
 </template>
 
 <script setup lang="ts">
+
 const q: any = ref("");
 // const url: string = "https://images-api.nasa.gov/search?q=";
 // const extraParams: string = "&media_type=image";
-const { thumbnailInfoList: any } = useNasaImgSearch(q)
-const data: any = ref(null)
+// const { thumbnailInfoList: any } = useNasaImgSearch(q)
+let thumbnailInfo: any = ref(null)
+console.log("line 69 thumbinfo space image search", thumbnailInfo)
 
-const searchNasaLibrary: any = async (q: any) => {
+const searchNasaLibrary: any = async () => {
   try {
-   const result = await useNasaImgSearch(q);
-   data.value = result;
-   console.log(data.value.thumbnailInfoList[0]);
+    thumbnailInfo = await useNasaImgSearch(q?.value);
+    thumbnailInfo.value = thumbnailInfo?.thumbnailInfoList;
+   console.log(thumbnailInfo?.value)
   } catch (err) {
     console.log(err)
   }
   return {
-    searchNasaLibrary, 
-    data,
+    thumbnailInfo,
   }
 };
-
-console.log()
-
-// Comment out from here
-// interface ThumbnailInfo {
-//   thumbnail: string;
-//   nasa_id: string;
-// }
-
-// let thumbnailInfoList: ThumbnailInfo[] = [];
-// Move this into composable? Trigger when click?
-// let imageData: any;
-// let isFetching: boolean;
-
-// const searchNasaLibrary = async (searchQuery: any) => {
-//   isFetching = true;
-//   console.log(`${url}${searchQuery}${extraParams}`);
-//   const { pending, data: images }: any = await useFetch(`${url}${searchQuery}${extraParams}`, {
-//   lazy: true,
-//   server: false
-// }
-//   );
-//   imageData = await images?._rawValue?.collection?.items;
-//   console.log(imageData);
-
-//   for (const item of imageData) {
-//     const dataItems = item.data;
-//     const links = item.links;
-
-//     for (const dataItem of dataItems) {
-//       if (dataItem.hasOwnProperty("nasa_id") && dataItem.nasa_id) {
-//         for (const link of links) {
-//           if (link.rel === "preview" && link.render === "image") {
-//             thumbnailInfoList.push({
-//               thumbnail: link.href,
-//               nasa_id: dataItem.nasa_id,
-//             });
-//           }
-//         }
-//       }
-//     }
-//   }
-//   console.log("thumbnail info ", thumbnailInfoList);
-//   isFetching = false;
-// };
-
-// To here if composable works as expected
-
-// <NuxtPicture
-//             format="avif,webp,jpg"
-//             :src="searchResult"
-//             sizes="100vw"
-//             height="400px"
-//           />
-
-// export default {
-//   const searchNasaLibrary = async (searchQuery: any) => {
-//   isFetching = true;
-//   thumbnailInfoList = [];
-//   console.log(`${url}${searchQuery}${extraParams}`);
-//   try {
-//   const { data: images }: any = await useFetch(
-//     `${url}${searchQuery}${extraParams}`
-//   );
-//   if (response.ok) {
-//   imageData = await images?._rawValue?.collection?.items;
-
-//   for (const item of imageData) {
-//     const dataItems = item.data;
-//     const links = item.links;
-
-//     for (const dataItem of dataItems) {
-//       if (dataItem.hasOwnProperty("nasa_id") && dataItem.nasa_id) {
-//         for (const link of links) {
-//           if (link.rel === "preview" && link.render === "image") {
-//             thumbnailInfoList.push({
-//               thumbnail: link.href,
-//               nasa_id: dataItem.nasa_id,
-//             });
-//           }
-//         }
-//       }
-//     }
-//   }
-// } else {
-//   console.error('Failed to fetch data');
-// }
-
-// } catch (error) {
-//       console.error('Error:', error);
-//     }
-
-//     console.log("thumbnail info ", thumbnailInfoList);
-//   isFetching = false;
-
-//   data() {
-//     return {
-//       data: [],
-//     };
-//   },
-
-// };
 </script>
 
 <style lang="scss" scoped></style>
