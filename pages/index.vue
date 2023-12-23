@@ -18,48 +18,43 @@
           About App
         </h3>
         <p class="p-2">
-          This app allows you to search for cool space images from Nasa's APIs
-          and create a profile where you can save your favorite finds.
+          This app allows you to search for incredible images of deep space using Nasa's APIs
+          and create a profile where you can save your favorite finds. This app can also be extended
+          to use other APIs to search for comets or get updates for various space projects.
         </p>
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
-          Purpose of this app:
+          Technology focus of this app:
         </h3>
         <p class="p-2">
-          To try out Nuxt, Vue, Tailwind, GraphQL, Docker and MongoDB Atlas hosted on
-          Vercel. 
+          This app uses Nuxt, Vue, Tailwind, GraphQL, Docker and MongoDB Atlas as a tech stack and will
+          be hosted on Vercel. 
         </p>
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
-          ToDo:
+          Ideas to add:
         </h3>
         <p class="p-2">
-            <ul class="list-disc p-2">
-                <li>Create layout and structure of profile favs, recently searched and settings if any.</li>
-                <li>If it makes sense set up MongoDB Atlas and GraphQL for database and fetching data from DB</li>
-                <li>Set up docker for Nuxt</li>
-                <li>Improve layout and tailwind setup</li>
-                <li>Cleanup code</li>
-            </ul>
+          Use Pinia for state management and allow use more Nasa APIs for space info!
         </p>
       </div>
       <div class="flex w-6/12">
-        <div v-if="isImg" class="w-full">
+        <div v-if="isImg" class="flex flex-wrap w-full object-contain content-center">
           <NuxtPicture
             fit="cover"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            class="h-full w-full flex justify-center"
+            class="w-full flex justify-center"
           />
         </div>
-        <div v-else class="w-full">
+        <div v-else class="flex flex-wrap w-full object-contain content-center">
           <iframe
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
-            class="h-full w-full flex justify-center"
+            class="w-full flex justify-center"
           ></iframe>
         </div>
       </div>
@@ -68,6 +63,9 @@
 </template>
 
 <script setup lang="ts">
+// use state & date to ensure that request it only sent once a day.
+// If date is not the same as new Date or dailyImageVideo has no value run a new request
+
 const config = useRuntimeConfig();
 const apiKey: string = config.public.apiKey;
 const url: string = `https://api.nasa.gov/planetary/apod?api_key=`;
