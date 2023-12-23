@@ -10,7 +10,6 @@ export const useNasaImgSearch = async (searchQuery: any) => {
   const url: string = "https://images-api.nasa.gov/search?q=";
   const extraParams: string = "&media_type=image";
 
-  let thumbnailInfoList: ThumbnailInfo[] = [];
   let imageData: any;
   let isFetching: boolean;
 
@@ -18,7 +17,7 @@ export const useNasaImgSearch = async (searchQuery: any) => {
   console.log(searchQuery);
   console.log(`${url}${searchQuery}${extraParams}`);
 
-  useState<any>('thumbnailInfoList', () => thumbnailInfoList)
+  const thumbnailInfoList: any = reactive<ThumbnailInfo[]>([]);
   const { pending, data: images }: any = await useFetch(
     `${url}${searchQuery}${extraParams}`,
     {

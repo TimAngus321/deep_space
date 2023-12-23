@@ -7,7 +7,7 @@ console.log("thumbInfo:", props);
 </script>
 
 <template>
-  <div v-if="thumbnailInfo" class="grid grid-cols-4 gap-5 grid-masonary">
+  <div v-if="thumbnailInfo && thumbnailInfo?.length" class="grid grid-cols-4 gap-5 grid-masonary">
     <img
       class="card text-center"
       v-for="thumbData in thumbnailInfo"

@@ -62,17 +62,17 @@
 <script setup lang="ts">
 
 const q: any = ref("");
-// const url: string = "https://images-api.nasa.gov/search?q=";
-// const extraParams: string = "&media_type=image";
-// const { thumbnailInfoList: any } = useNasaImgSearch(q)
-let thumbnailInfo: any = ref(null)
+let thumbnailInfo: any = reactive([])
 console.log("line 69 thumbinfo space image search", thumbnailInfo)
 
 const searchNasaLibrary: any = async () => {
+
   try {
-    thumbnailInfo = await useNasaImgSearch(q?.value);
-    thumbnailInfo.value = thumbnailInfo?.thumbnailInfoList;
+    if (q?.value) {
+    const result = await useNasaImgSearch(q?.value);
+    thumbnailInfo.value = result?.thumbnailInfoList;
    console.log(thumbnailInfo?.value)
+    }
   } catch (err) {
     console.log(err)
   }
