@@ -7,9 +7,12 @@ console.log("thumbInfo:", props);
 </script>
 
 <template>
-  <div v-if="thumbnailInfo && thumbnailInfo?.length" class="grid grid-cols-4 gap-5 grid-masonary">
+  <div
+    v-if="thumbnailInfo && thumbnailInfo?.length"
+    class="masonry grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+  >
     <img
-      class="card text-center"
+      class="mb-5"
       v-for="thumbData in thumbnailInfo"
       :key="thumbData?.nasa_id"
       :src="thumbData?.thumbnail"
@@ -18,4 +21,27 @@ console.log("thumbInfo:", props);
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.masonry {
+  column-count: 1;
+  column-gap: 1rem;
+
+  @screen sm {
+    column-count: 2;
+  }
+
+  @screen md {
+    column-count: 3;
+  }
+
+  @screen lg {
+    column-count: 4;
+  }
+
+  img {
+    break-inside: avoid;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+</style>

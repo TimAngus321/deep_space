@@ -51,7 +51,7 @@
         * Sort out useState composable properly and use here so images render properly
       
       -->
-        <div >
+        <div class="py-10">
             <ThumbnailImages :thumbnailInfo="thumbnailInfo?.value" />
         </div>
       </section>
