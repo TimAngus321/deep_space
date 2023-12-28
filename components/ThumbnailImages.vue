@@ -8,6 +8,7 @@ console.log("thumbInfo:", props);
 </script>
 
 <template>
+  <!-- Add grid-masonry to grid when it's more natively supported -->
   <figure
     v-if="thumbnailInfo && thumbnailInfo?.length"
     class="grid grid-cols-4 gap-5"
