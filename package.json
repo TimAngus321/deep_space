@@ -21,6 +21,7 @@
     "@nuxt/image": "^1.0.0",
     "@nuxt/ui": "^2.9.0",
     "@nuxtjs/color-mode": "^3.3.0",
+    "@yeger/vue-masonry-wall": "^5.0.3",
     "nuxt-icon": "^0.5.0",
     "sass": "^1.69.0",
     "vuetify": "next"

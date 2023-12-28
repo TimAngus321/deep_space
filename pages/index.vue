@@ -63,6 +63,7 @@
 </template>
 
 <script setup lang="ts">
+// Also use SSR to ensure it's just run once server side
 // use state & date to ensure that request it only sent once a day.
 // If date is not the same as new Date or dailyImageVideo has no value run a new request
 

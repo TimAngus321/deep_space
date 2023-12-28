@@ -41,12 +41,17 @@
         </div>
         <!-- 
           
-        * Use https://esahubble.org/images/search/ to add categories to create
-        search for glaxy/nebula etc only 
+        * Use https://esahubble.org/images/search/ to add categories to keywords to create a more
+        specific search for glaxy/nebula etc only THIS PROBABLY WILL RESTRICT RESULTS TOO MUCH
+        JUST ADD SUGGESTIONS TO SEARCH 
 
-        * use grid masonary layout for different scale images and no weird gaps
+        Keywords to suggest: bubble nebula, andromeda galaxy, orion nebula, supernova, pillars
 
-        * Sort out useState composable properly and use here so images render properly
+        * Check out scroll pagination for getting more images
+
+        * use grid masonary layout for different scale images and no weird gaps. Just use this: https://www.npmjs.com/package/@yeger/vue-masonry-wall
+
+        * Move isFetching to here for a loading state and render the loading skeleton before showing images https://ui.nuxt.com/layout/skeleton
       
       -->
         <div class="py-10">
