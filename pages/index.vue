@@ -11,7 +11,7 @@
     <div
       class="flex flex-row h-full justify-between gap-20 w-full p-4"
     >
-      <div class="flex flex-col flex-wrap p-2 gap-4 w-6/12 self-center">
+      <div class="flex flex-col flex-wrap p-2 gap-2 w-6/12 self-center">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >

@@ -9,18 +9,20 @@ console.log("thumbInfo:", props);
 
 <template>
   <!-- Add grid-masonry to grid when it's more natively supported -->
+  <div v-if="thumbnailInfo && thumbnailInfo?.length" class="grid grid-cols-4 gap-5">
   <figure
-    v-if="thumbnailInfo && thumbnailInfo?.length"
-    class="grid grid-cols-4 gap-5"
+    v-for="thumbData in thumbnailInfo"
   >
-    <img
-      v-for="thumbData in thumbnailInfo"
-      class="mb-5"
-      :key="thumbData?.nasa_id"
-      :src="thumbData?.thumbnail"
-      alt="Thumbnail"
-    />
+    <NuxtLink :to="`imageDetails/${thumbData.nasa_id}`">
+      <img
+        class="mb-5"
+        :key="thumbData?.nasa_id"
+        :src="thumbData?.thumbnail"
+        alt="Thumbnail"
+      />
+    </NuxtLink>
   </figure>
+</div>
 </template>
 
 <style scoped></style>
