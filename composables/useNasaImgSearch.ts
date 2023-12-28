@@ -39,6 +39,10 @@ export const useNasaImgSearch = async (searchQuery: any) => {
             thumbnailInfoList.push({
               thumbnail: link.href,
               nasa_id: dataItem.nasa_id,
+              title: dataItem.title,
+              date_created: dataItem.date_created,
+              description: dataItem.description,
+              keywords: dataItem.keywords,
             });
           }
         }
