@@ -7,9 +7,9 @@ console.log("thumbInfo:", props);
 </script>
 
 <template>
-  <div
+  <figure
     v-if="thumbnailInfo && thumbnailInfo?.length"
-    class="masonry grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+    class="masonryLayout grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
   >
     <img
       class="mb-5"
@@ -18,30 +18,12 @@ console.log("thumbInfo:", props);
       :src="thumbData?.thumbnail"
       alt="Thumbnail"
     />
-  </div>
+  </figure>
 </template>
 
 <style scoped>
-.masonry {
-  column-count: 1;
-  column-gap: 1rem;
-
-  @screen sm {
-    column-count: 2;
-  }
-
-  @screen md {
-    column-count: 3;
-  }
-
-  @screen lg {
-    column-count: 4;
-  }
-
-  img {
-    break-inside: avoid;
-    width: 100%;
-    margin-bottom: 0;
-  }
+.masonryLayout {
+  grid-template-rows: 1fr auto;
+  break-inside: avoid;
 }
 </style>
