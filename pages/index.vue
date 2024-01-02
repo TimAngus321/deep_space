@@ -11,7 +11,7 @@
     <div
       class="flex flex-row h-full justify-between gap-20 w-full p-4"
     >
-      <div class="flex flex-col flex-wrap p-2 gap-4 w-6/12 self-center">
+      <div class="flex flex-col flex-wrap p-2 gap-2 w-6/12 self-center">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
@@ -54,7 +54,7 @@
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
-            class="w-full flex justify-center"
+            class="w-full h-full flex justify-center"
           ></iframe>
         </div>
       </div>
@@ -63,6 +63,7 @@
 </template>
 
 <script setup lang="ts">
+// Also use SSR to ensure it's just run once server side
 // use state & date to ensure that request it only sent once a day.
 // If date is not the same as new Date or dailyImageVideo has no value run a new request
 

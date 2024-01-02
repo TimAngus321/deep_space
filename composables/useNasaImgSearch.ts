@@ -9,13 +9,7 @@ export const useNasaImgSearch = async (searchQuery: any) => {
 
   const url: string = "https://images-api.nasa.gov/search?q=";
   const extraParams: string = "&media_type=image";
-
   let imageData: any;
-  let isFetching: boolean;
-
-  isFetching = true;
-  console.log(searchQuery);
-  console.log(`${url}${searchQuery}${extraParams}`);
 
   const thumbnailInfoList: any = reactive<ThumbnailInfo[]>([]);
   const { pending, data: images }: any = await useFetch(
@@ -39,14 +33,17 @@ export const useNasaImgSearch = async (searchQuery: any) => {
             thumbnailInfoList.push({
               thumbnail: link.href,
               nasa_id: dataItem.nasa_id,
+              title: dataItem.title,
+              date_created: dataItem.date_created,
+              description: dataItem.description,
+              keywords: dataItem.keywords,
             });
           }
         }
       }
     }
   }
-  console.log("thumbnail info ", thumbnailInfoList);
-  
-  return { thumbnailInfoList };
+  // console.log("thumbnail info ", thumbnailInfoList);
 
+  return { thumbnailInfoList };
 };

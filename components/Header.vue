@@ -12,7 +12,7 @@
       </div>
       <div class="flex items-center justify-end w-full gap-6">
         <NuxtLink to="/" class="hover:text-primary p-2">Home</NuxtLink>
-        <NuxtLink to="/space-image-search" class="hover:text-primary p-2"
+        <NuxtLink to="/nasaImgSearch" class="hover:text-primary p-2"
           >Image Search</NuxtLink
         >
         <NuxtLink to="/profile" class="hover:text-primary p-2"
