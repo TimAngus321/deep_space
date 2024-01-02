@@ -54,7 +54,7 @@
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
-            class="w-full flex justify-center"
+            class="w-full h-full flex justify-center"
           ></iframe>
         </div>
       </div>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = defineProps(["thumbnailInfo"]);
-console.log("thumbInfo:", props);
 </script>
 
 <template>

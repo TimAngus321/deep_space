@@ -4,7 +4,7 @@
       <h1
         class="p-2 text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200"
       >
-        Search Deep Space
+        Nasa Image Search
       </h1>
     </header>
 
@@ -54,8 +54,22 @@
         * Move isFetching to here for a loading state and render the loading skeleton before showing images https://ui.nuxt.com/layout/skeleton
       
       -->
-        <div class="py-10">
-            <ThumbnailImages :thumbnailInfo="thumbnailInfo?.value" />
+        <div v-if="isFetching" class="py-10 grid grid-cols-4 gap-5">
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+        </div>
+        <div v-else class="py-10">
+          <ThumbnailImages :thumbnailInfo="thumbnailInfo?.value" />
         </div>
       </section>
     </UContainer>
@@ -63,25 +77,25 @@
 </template>
 
 <script setup lang="ts">
-
-const q: any = ref("");
-let thumbnailInfo: any = reactive([])
-console.log("line 69 thumbinfo space image search", thumbnailInfo)
+const q: Ref<string> = ref("");
+const thumbnailInfo: any = reactive([]);
+const isFetching: Ref<boolean> = ref(false);
 
 const searchNasaLibrary: any = async () => {
-
+  isFetching.value = true;
   try {
     if (q?.value) {
-    const result = await useNasaImgSearch(q?.value);
-    thumbnailInfo.value = result?.thumbnailInfoList;
-   console.log(thumbnailInfo?.value)
+      const result = await useNasaImgSearch(q?.value);
+      thumbnailInfo.value = result?.thumbnailInfoList;
+      console.log(thumbnailInfo?.value);
     }
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
+  isFetching.value = false;
   return {
-    thumbnailInfo,
-  }
+    thumbnailInfo
+  };
 };
 </script>
 
