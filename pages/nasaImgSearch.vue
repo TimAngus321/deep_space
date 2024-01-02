@@ -55,18 +55,18 @@
       
       -->
         <div v-if="isFetching" class="py-10 grid grid-cols-4 gap-5">
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
         </div>
         <div v-else class="py-10">
           <ThumbnailImages :thumbnailInfo="thumbnailInfo?.value" />

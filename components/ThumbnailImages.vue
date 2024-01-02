@@ -11,7 +11,6 @@ const props = defineProps(["thumbnailInfo"]);
     <figure v-for="thumbData in thumbnailInfo">
       <NuxtLink :to="`imageDetails/${thumbData?.nasa_id}`">
         <img
-          class="mb-5"
           :key="thumbData?.nasa_id"
           :src="thumbData?.thumbnail"
           alt="Thumbnail"
