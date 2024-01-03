@@ -81,6 +81,8 @@ const q: Ref<string> = ref("");
 const thumbnailInfo: any = reactive([]);
 const isFetching: Ref<boolean> = ref(false);
 
+  // Replace with new Pinia store!
+
 const searchNasaLibrary: any = async () => {
   isFetching.value = true;
   try {
