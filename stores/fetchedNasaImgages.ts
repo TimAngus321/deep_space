@@ -16,13 +16,15 @@ export const useFetchedImagesStore = defineStore("fetchedImages", () => {
   let imageData: any;
 
   const useNasaImgSearch = async (searchQuery: any) => {
-    const { pending, data: images }: any = await useFetch(
+    const { data: images }: any = await useFetch(
       `${url}${searchQuery}${extraParams}`,
       {
         lazy: true,
         server: false,
       }
     );
+
+    console.log(searchQuery);
     imageData = await images?._rawValue?.collection?.items;
 
     for (const item of imageData) {

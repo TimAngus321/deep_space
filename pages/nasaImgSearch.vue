@@ -20,7 +20,7 @@
             placeholder="Search deep space..."
             icon="i-heroicons-magnifying-glass-20-solid"
             :ui="{ icon: { trailing: { pointer: '' } } }"
-            @keyup.enter="searchNasaLibrary(q)"
+            @keyup.enter="store.useNasaImgSearch(q)"
           >
             <template #trailing>
               <UButton
@@ -34,7 +34,7 @@
             </template>
           </UInput>
           <UButton
-            @click="searchNasaLibrary(q)"
+            @click="store.useNasaImgSearch(q)"
             class="flex-grow-1"
             label="Search"
           />
@@ -69,7 +69,7 @@
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
         </div>
         <div v-else class="py-10">
-          <ThumbnailImages :thumbnailInfo="thumbnailInfo?.value" />
+          <ThumbnailImages :thumbnailInfo="store.thumbnailInfoList" />
         </div>
       </section>
     </UContainer>
@@ -78,27 +78,33 @@
 
 <script setup lang="ts">
 const q: Ref<string> = ref("");
-const thumbnailInfo: any = reactive([]);
+// let thumbnailInfo: any = reactive([]);
+
+// Move into Pinia store
 const isFetching: Ref<boolean> = ref(false);
 
-  // Replace with new Pinia store!
+// Replace with new Pinia store!
+const store = useFetchedImagesStore();
+// thumbnailInfo = await store.useNasaImgSearch(q?.value);
 
-const searchNasaLibrary: any = async () => {
-  isFetching.value = true;
-  try {
-    if (q?.value) {
-      const result = await useNasaImgSearch(q?.value);
-      thumbnailInfo.value = result?.thumbnailInfoList;
-      console.log(thumbnailInfo?.value);
-    }
-  } catch (err) {
-    console.log(err);
-  }
-  isFetching.value = false;
-  return {
-    thumbnailInfo
-  };
-};
+
+
+// const searchNasaLibrary: any = async () => {
+//   isFetching.value = true;
+//   try {
+//     if (q?.value) {
+//       const result = await useNasaImgSearch(q?.value);
+//       thumbnailInfo.value = result?.thumbnailInfoList;
+//       console.log(thumbnailInfo?.value);
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   isFetching.value = false;
+//   return {
+//     thumbnailInfo
+//   };
+// };
 </script>
 
 <style lang="scss" scoped></style>
