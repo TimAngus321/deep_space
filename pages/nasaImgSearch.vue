@@ -69,7 +69,7 @@
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
         </div>
         <div v-else class="py-10">
-          <ThumbnailImages :thumbnailInfo="store.thumbnailInfoList" />
+          <ThumbnailImages :thumbnailInfo="thumbnailInfo" />
         </div>
       </section>
     </UContainer>
@@ -85,7 +85,7 @@ const isFetching: Ref<boolean> = ref(false);
 
 // Replace with new Pinia store!
 const store = useFetchedImagesStore();
-// thumbnailInfo = await store.useNasaImgSearch(q?.value);
+// const thumbnailInfo = computed(() => store.useNasaImgSearch);
 
 
 

@@ -1,14 +1,16 @@
 <script setup lang="ts">
-const props = defineProps(["thumbnailInfo"]);
+// const props = defineProps(["thumbnailInfo"]);
+const store = await useFetchedImagesStore();
+
 </script>
 
 <template>
   <!-- Add grid-masonry to grid when it's more natively supported -->
   <div
-    v-if="thumbnailInfo && thumbnailInfo?.length"
+    v-if="store?.thumbnailInfoList && store?.thumbnailInfoList?.length"
     class="grid grid-cols-4 gap-5"
   >
-    <figure v-for="thumbData in thumbnailInfo">
+    <figure v-for="thumbData in store?.thumbnailInfoList">
       <NuxtLink :to="`imageDetails/${thumbData?.nasa_id}`">
         <img
           :key="thumbData?.nasa_id"

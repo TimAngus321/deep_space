@@ -1,6 +1,10 @@
 interface ThumbnailInfo {
   thumbnail: string;
   nasa_id: string;
+  title: string;
+  date_created: string;
+  description: string;
+  keywords: string;
 }
 
 // Rememer this for ease of use:
@@ -9,13 +13,13 @@ interface ThumbnailInfo {
 // function()s become actions
 
 export const useFetchedImagesStore = defineStore("fetchedImages", () => {
-  const thumbnailInfoList: any = reactive<ThumbnailInfo[]>([]);
+  const thumbnailInfoList: ThumbnailInfo[]  = reactive<ThumbnailInfo[]>([]);
 
   const url: string = "https://images-api.nasa.gov/search?q=";
   const extraParams: string = "&media_type=image";
   let imageData: any;
 
-  const useNasaImgSearch = async (searchQuery: any) => {
+  const useNasaImgSearch = computed(() => async (searchQuery: any) => {
     const { data: images }: any = await useFetch(
       `${url}${searchQuery}${extraParams}`,
       {
@@ -24,8 +28,8 @@ export const useFetchedImagesStore = defineStore("fetchedImages", () => {
       }
     );
 
-    console.log(searchQuery);
     imageData = await images?._rawValue?.collection?.items;
+    console.log(imageData);
 
     for (const item of imageData) {
       const dataItems = item.data;
@@ -48,8 +52,9 @@ export const useFetchedImagesStore = defineStore("fetchedImages", () => {
         }
       }
     }
-  };
-  // console.log("thumbnail info ", thumbnailInfoList);
-
+   
+  });
+  console.log("thumbnail info ", thumbnailInfoList);
   return { thumbnailInfoList, useNasaImgSearch};
+  
 });
