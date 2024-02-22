@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // const props = defineProps(["thumbnailInfo"]);
-const store = await useFetchedImagesStore();
+const store = useFetchedImagesStore();
 
 </script>
 

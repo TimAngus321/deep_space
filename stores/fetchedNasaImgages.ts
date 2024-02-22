@@ -13,13 +13,13 @@ interface ThumbnailInfo {
 // function()s become actions
 
 export const useFetchedImagesStore = defineStore("fetchedImages", () => {
-  const thumbnailInfoList: ThumbnailInfo[]  = reactive<ThumbnailInfo[]>([]);
+  const thumbnailInfoList = reactive<ThumbnailInfo[]>([]);
 
   const url: string = "https://images-api.nasa.gov/search?q=";
   const extraParams: string = "&media_type=image";
-  let imageData: any;
+//   const imageData = reactive<any>({});
 
-  const useNasaImgSearch = computed(() => async (searchQuery: any) => {
+  const useNasaImgSearch = async (searchQuery: any) => {
     const { data: images }: any = await useFetch(
       `${url}${searchQuery}${extraParams}`,
       {
@@ -28,7 +28,7 @@ export const useFetchedImagesStore = defineStore("fetchedImages", () => {
       }
     );
 
-    imageData = await images?._rawValue?.collection?.items;
+    const imageData = images?._rawValue?.collection?.items;
     console.log(imageData);
 
     for (const item of imageData) {
@@ -39,7 +39,7 @@ export const useFetchedImagesStore = defineStore("fetchedImages", () => {
         if (dataItem.hasOwnProperty("nasa_id") && dataItem.nasa_id) {
           for (const link of links) {
             if (link.rel === "preview" && link.render === "image") {
-              thumbnailInfoList.push({
+              thumbnailInfoList?.push({
                 thumbnail: link.href,
                 nasa_id: dataItem.nasa_id,
                 title: dataItem.title,
@@ -53,7 +53,7 @@ export const useFetchedImagesStore = defineStore("fetchedImages", () => {
       }
     }
    
-  });
+  };
   console.log("thumbnail info ", thumbnailInfoList);
   return { thumbnailInfoList, useNasaImgSearch};
   

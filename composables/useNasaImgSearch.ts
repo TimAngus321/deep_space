@@ -42,7 +42,7 @@ export const useNasaImgSearch = async (searchQuery: any) => {
       }
     }
   }
-  // console.log("thumbnail info ", thumbnailInfoList);
+  console.log("thumbnail info ", thumbnailInfoList);
 
   return { thumbnailInfoList };
 };
