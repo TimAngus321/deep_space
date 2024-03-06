@@ -20,7 +20,7 @@
             placeholder="Search deep space..."
             icon="i-heroicons-magnifying-glass-20-solid"
             :ui="{ icon: { trailing: { pointer: '' } } }"
-            @keyup.enter="store.useNasaImgSearch(q)"
+            @keyup.enter="nasaImgsStore.useNasaImgSearch(q)"
           >
             <template #trailing>
               <UButton
@@ -34,7 +34,7 @@
             </template>
           </UInput>
           <UButton
-            @click="store.useNasaImgSearch(q)"
+            @click="nasaImgsStore.useNasaImgSearch(q)"
             class="flex-grow-1"
             label="Search"
           />
@@ -69,7 +69,7 @@
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
         </div>
         <div v-else class="py-10">
-          <ThumbnailImages :thumbnailInfo="store.thumbnailInfoList" />
+          <ThumbnailImages :thumbnailInfo="nasaImgsStore.nasaExampleImgs" />
         </div>
       </section>
     </UContainer>
@@ -84,10 +84,11 @@ const q: Ref<string> = ref("");
 const isFetching: Ref<boolean> = ref(false);
 
 // Replace with new Pinia store!
-const store = useFetchedImagesStore();
-await useAsyncData('thumbnailInfoList', () => store.useNasaImgSearch(q).then(() => true))
+// const store = useFetchedImagesStore();
+// await useAsyncData('thumbnailInfoList', () => store.useNasaImgSearch(q).then(() => true))
 
-// const thumbnailInfo = computed(() => store.useNasaImgSearch);
+const nasaImgsStore = useFetchedImgsStore();
+console.log(nasaImgsStore.nasaExampleImgs)
 
 
 
