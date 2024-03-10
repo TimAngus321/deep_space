@@ -68,8 +68,11 @@
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
         </div>
-        <div v-else class="py-10">
-          <ThumbnailImages :thumbnailInfo="nasaImgsStore.nasaExampleImgs" />
+        <!-- Add grid-masonry to grid when it's more natively supported -->
+        <div v-else class="py-10 grid grid-cols-4 gap-5">
+          <figure v-for="thumbData in nasaImgsStore.nasaExampleImgs">
+            <ThumbnailImages :thumbnailInfo="thumbData" />
+          </figure>
         </div>
       </section>
     </UContainer>
@@ -88,9 +91,7 @@ const isFetching: Ref<boolean> = ref(false);
 // await useAsyncData('thumbnailInfoList', () => store.useNasaImgSearch(q).then(() => true))
 
 const nasaImgsStore = useFetchedImgsStore();
-console.log(nasaImgsStore.nasaExampleImgs)
-
-
+console.log(nasaImgsStore.nasaExampleImgs);
 
 // const searchNasaLibrary: any = async () => {
 //   isFetching.value = true;
