@@ -81,6 +81,8 @@
 
 <script setup lang="ts">
 const q: Ref<string> = ref("");
+// Remember to remove all comments and add loading state when API call is running
+// Also remove unnecessary composables and stores
 // let thumbnailInfo: any = reactive([]);
 
 // Move into Pinia store
