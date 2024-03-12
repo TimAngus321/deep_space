@@ -20,7 +20,7 @@
             placeholder="Search deep space..."
             icon="i-heroicons-magnifying-glass-20-solid"
             :ui="{ icon: { trailing: { pointer: '' } } }"
-            @keyup.enter="searchNasaLibrary(q)"
+            @keyup.enter="nasaImgsStore.useNasaImgSearch(q)"
           >
             <template #trailing>
               <UButton
@@ -34,7 +34,7 @@
             </template>
           </UInput>
           <UButton
-            @click="searchNasaLibrary(q)"
+            @click="nasaImgsStore.useNasaImgSearch(q)"
             class="flex-grow-1"
             label="Search"
           />
@@ -55,21 +55,24 @@
       
       -->
         <div v-if="isFetching" class="py-10 grid grid-cols-4 gap-5">
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
-          <USkeleton class="mb-5 w-[300px] h-[300px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+          <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
         </div>
-        <div v-else class="py-10">
-          <ThumbnailImages :thumbnailInfo="thumbnailInfo?.value" />
+        <!-- Add grid-masonry to grid when it's more natively supported -->
+        <div v-else class="py-10 grid grid-cols-4 gap-5">
+          <figure v-for="thumbData in nasaImgsStore.nasaExampleImgs">
+            <ThumbnailImages :thumbnailInfo="thumbData" />
+          </figure>
         </div>
       </section>
     </UContainer>
@@ -78,25 +81,36 @@
 
 <script setup lang="ts">
 const q: Ref<string> = ref("");
-const thumbnailInfo: any = reactive([]);
+// Remember to remove all comments and add loading state when API call is running
+// Also remove unnecessary composables and stores
+// let thumbnailInfo: any = reactive([]);
+
+// Move into Pinia store
 const isFetching: Ref<boolean> = ref(false);
 
-const searchNasaLibrary: any = async () => {
-  isFetching.value = true;
-  try {
-    if (q?.value) {
-      const result = await useNasaImgSearch(q?.value);
-      thumbnailInfo.value = result?.thumbnailInfoList;
-      console.log(thumbnailInfo?.value);
-    }
-  } catch (err) {
-    console.log(err);
-  }
-  isFetching.value = false;
-  return {
-    thumbnailInfo
-  };
-};
+// Replace with new Pinia store!
+// const store = useFetchedImagesStore();
+// await useAsyncData('thumbnailInfoList', () => store.useNasaImgSearch(q).then(() => true))
+
+const nasaImgsStore = useFetchedImgsStore();
+console.log(nasaImgsStore.nasaExampleImgs);
+
+// const searchNasaLibrary: any = async () => {
+//   isFetching.value = true;
+//   try {
+//     if (q?.value) {
+//       const result = await useNasaImgSearch(q?.value);
+//       thumbnailInfo.value = result?.thumbnailInfoList;
+//       console.log(thumbnailInfo?.value);
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   isFetching.value = false;
+//   return {
+//     thumbnailInfo
+//   };
+// };
 </script>
 
 <style lang="scss" scoped></style>

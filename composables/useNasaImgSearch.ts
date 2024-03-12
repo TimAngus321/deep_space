@@ -20,7 +20,6 @@ export const useNasaImgSearch = async (searchQuery: any) => {
     }
   );
   imageData = await images?._rawValue?.collection?.items;
-  console.log(imageData);
 
   for (const item of imageData) {
     const dataItems = item.data;
@@ -43,7 +42,7 @@ export const useNasaImgSearch = async (searchQuery: any) => {
       }
     }
   }
-  // console.log("thumbnail info ", thumbnailInfoList);
+  console.log("thumbnail info ", thumbnailInfoList);
 
   return { thumbnailInfoList };
 };
