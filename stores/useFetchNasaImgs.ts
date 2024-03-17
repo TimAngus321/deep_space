@@ -266,7 +266,13 @@ interface ThumbnailInfo {
             ]
         }
     ]
-})
+}),
+// Getters here
+getters:  {
+
+}
+
+
 
 
   
