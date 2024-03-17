@@ -10,7 +10,7 @@ interface ThumbnailInfo {
 export const useFetchedImgsStore = defineStore("fetchedImages", {
   state: () => ({
     nasaImgs: [],
-    fetchIssues: "", 
+    fetchIssues: "",
     hasFetchIssues: false,
     isFetching: false,
   }),
@@ -40,6 +40,7 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
         );
 
         const imageData = images?._rawValue?.collection?.items;
+        this.nasaImgs.splice(0); // Clear existing array
 
         for (const item of imageData) {
           const dataItems = item.data;
@@ -65,7 +66,7 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
       } catch (error) {
         this.isFetching = false;
         this.hasFetchIssues = true;
-        this.fetchIssues = "Error fetching NASA images:", error;
+        (this.fetchIssues = "Error fetching NASA images:"), error;
         console.error("Error fetching NASA images:", error);
       } finally {
         this.isFetching = false; // Reset loading state
