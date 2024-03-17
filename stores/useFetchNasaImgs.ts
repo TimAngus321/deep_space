@@ -1,6 +1,6 @@
 interface ThumbnailInfo {
   thumbnail: string;
-  nasa_id: string;
+  nasa_id?: string;
   title: string;
   date_created: string;
   description: string;
@@ -14,10 +14,9 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
     hasFetchIssues: false,
     isFetching: false,
   }),
-  // Getters here
   getters: {
     selectedImg(state) {
-      return (nasaID: string | string[]) => {
+      return (nasaID: ThumbnailInfo["nasa_id"]) => {
         return state.nasaImgs.find((exImg) => exImg?.nasa_id === nasaID);
       };
     },
@@ -26,9 +25,7 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
     async nasaImgSearch(q: string) {
       const url: string = "https://images-api.nasa.gov/search?q=";
       const extraParams: string = "&media_type=image";
-      //   const fetchedImgs: ThumbnailInfo[] = [];
-
-      this.isFetching = true; // Set loading state
+      this.isFetching = true;
 
       try {
         const { data: images }: any = await useFetch(
@@ -40,7 +37,7 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
         );
 
         const imageData = images?._rawValue?.collection?.items;
-        this.nasaImgs.splice(0); // Clear existing array
+        this.nasaImgs.splice(0);
 
         for (const item of imageData) {
           const dataItems = item.data;
@@ -69,7 +66,7 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
         (this.fetchIssues = "Error fetching NASA images:"), error;
         console.error("Error fetching NASA images:", error);
       } finally {
-        this.isFetching = false; // Reset loading state
+        this.isFetching = false;
       }
     },
   },
