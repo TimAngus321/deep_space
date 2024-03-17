@@ -20,7 +20,7 @@
             placeholder="Search deep space..."
             icon="i-heroicons-magnifying-glass-20-solid"
             :ui="{ icon: { trailing: { pointer: '' } } }"
-            @keyup.enter="nasaImgsStore.useNasaImgSearch(q)"
+            @keyup.enter="nasaImgsStore.nasaImgSearch(q)"
           >
             <template #trailing>
               <UButton
@@ -34,7 +34,7 @@
             </template>
           </UInput>
           <UButton
-            @click="nasaImgsStore.useNasaImgSearch(q)"
+            @click="nasaImgsStore.nasaImgSearch(q)"
             class="flex-grow-1"
             label="Search"
           />
@@ -54,7 +54,10 @@
         * Move isFetching to here for a loading state and render the loading skeleton before showing images https://ui.nuxt.com/layout/skeleton
       
       -->
-        <div v-if="isFetching" class="py-10 grid grid-cols-4 gap-5">
+        <div
+          v-if="nasaImgsStore.isFetching"
+          class="py-10 grid grid-cols-4 gap-5"
+        >
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
@@ -69,11 +72,14 @@
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
         </div>
         <!-- Add grid-masonry to grid when it's more natively supported -->
-        <div v-else class="py-10 grid grid-cols-4 gap-5">
-          <figure v-for="thumbData in nasaImgsStore.nasaExampleImgs">
-            <ThumbnailImages :thumbnailInfo="thumbData" />
-          </figure>
-        </div>
+        <div v-else-if="nasaImgsStore.hasFetchIssues" class="flex justify-center py-10">
+          <h3>{{ nasaImgsStore.fetchIssues }}</h3>
+          </div>
+          <div v-else class="py-10 grid grid-cols-4 gap-5">
+            <figure v-for="thumbData in nasaImgsStore.nasaImgs">
+              <ThumbnailImages :thumbnailInfo="thumbData" />
+            </figure>
+          </div>
       </section>
     </UContainer>
   </main>
@@ -93,7 +99,7 @@ const isFetching: Ref<boolean> = ref(false);
 // await useAsyncData('thumbnailInfoList', () => store.useNasaImgSearch(q).then(() => true))
 
 const nasaImgsStore = useFetchedImgsStore();
-console.log(nasaImgsStore.nasaExampleImgs);
+console.log(nasaImgsStore.nasaImgs.length);
 
 // const searchNasaLibrary: any = async () => {
 //   isFetching.value = true;
