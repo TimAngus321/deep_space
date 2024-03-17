@@ -6,11 +6,16 @@ console.log(nasa_id)
 // Request needed from Nasa (for large img etc): https://images-api.nasa.gov/asset/
 // const uri = 'https://fakestoreapi.com/products/' + id
 
+const nasaImgsStore = useFetchedImgsStore();
+const selectedImg = nasaImgsStore.selectedImg(nasa_id);
+
+
 </script>
 
 <template>
   <div>
-    <h1>{{ nasa_id }}</h1>
+    <h1>Nasa ID: {{ nasa_id }}</h1>
+    <p>Img Tite: {{ selectedImg?.title }}</p>
 
   </div>
 </template>

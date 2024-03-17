@@ -82,28 +82,6 @@ interface ThumbnailInfo {
             ]
         },
         {
-            "thumbnail": "https://images-assets.nasa.gov/image/hubble-finds-a-little-gem_20185002499_o/hubble-finds-a-little-gem_20185002499_o~thumb.jpg",
-            "nasa_id": "hubble-finds-a-little-gem_20185002499_o",
-            "title": "Little gem",
-            "date_created": "2015-08-03T00:00:00Z",
-            "description": "This colourful bubble is a planetary nebula called NGC 6818, also known as the Little Gem Nebula. It is located in the constellation of Sagittarius (The Archer), roughly 6000 light-years away from us. The rich glow of the cloud is just over half a light-year across — humongous compared to its tiny central star — but still a little gem on a cosmic scale. When stars like the Sun enter retirement, they shed their outer layers into space to create glowing clouds of gas called planetary nebulae. This ejection of mass is uneven, and planetary nebulae can have very complex shapes. NGC 6818 shows knotty filament-like structures and distinct layers of material, with a bright and enclosed central bubble surrounded by a larger, more diffuse cloud. Scientists believe that the stellar wind from the central star propels the outflowing material, sculpting the elongated shape of NGC 6818. As this fast wind smashes through the slower-moving cloud it creates particularly bright blowouts at the bubble’s outer layers. Hubble previously imaged this nebula back in 1997 with its Wide Field Planetary Camera 2, using a mix of filters that highlighted emission from ionised oxygen and hydrogen (opo9811h). This image, while from the same camera, uses different filters to reveal a different view of the nebula. A version of the image was submitted to the Hubble’s Hidden Treasures image processing competition by contestant Judy Schmidt.",
-            "keywords": [
-                "Little Gem Nebula",
-                "NGC 6818"
-            ]
-        },
-        {
-            "thumbnail": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000409/GSFC_20171208_Archive_e000409~thumb.jpg",
-            "nasa_id": "GSFC_20171208_Archive_e000409",
-            "title": "Hubble's Blue Bubble",
-            "date_created": "2017-12-08T00:00:00Z",
-            "description": " A large blue bubble with a bright star in the center on a black background filled with stars  Sparkling at the center of this beautiful NASA/ESA Hubble Space Telescope image is a Wolf–Rayet star known as WR 31a, located about 30,000 light-years away in the constellation of Carina (The Keel).  The distinctive blue bubble appearing to encircle WR 31a is a Wolf–Rayet nebula — an interstellar cloud of dust, hydrogen, helium and other gases. Created when speedy stellar winds interact with the outer layers of hydrogen ejected by Wolf–Rayet stars, these nebulae are frequently ring-shaped or spherical. The bubble — estimated to have formed around 20,000 years ago — is expanding at a rate of around 220,000 kilometers (136,700 miles) per hour!  Unfortunately, the lifecycle of a Wolf–Rayet star is only a few hundred thousand years — the blink of an eye in cosmic terms. Despite beginning life with a mass at least 20 times that of the sun, Wolf–Rayet stars typically lose half their mass in less than 100,000 years. And WR 31a is no exception to this case. It will, therefore, eventually end its life as a spectacular supernova, and the stellar material expelled from its explosion will later nourish a new generation of stars and planets.  Image credi: ESA/Hubble &amp; NASA, Acknowledgement: Judy Schmidt",
-            "keywords": [
-                "Hubble's Blue Bubble",
-                "wr31a"
-            ]
-        },
-        {
             "thumbnail": "https://images-assets.nasa.gov/image/PIA22568/PIA22568~thumb.jpg",
             "nasa_id": "PIA22568",
             "title": "Cat's Paw Image 1",
@@ -157,17 +135,6 @@ interface ThumbnailInfo {
             "keywords": [
                 "NGC 3324",
                 "Carina Nebula"
-            ]
-        },
-        {
-            "thumbnail": "https://images-assets.nasa.gov/image/PIA18164/PIA18164~thumb.jpg",
-            "nasa_id": "PIA18164",
-            "title": "Iridescent Glory of Nearby Helix Nebula",
-            "date_created": "2014-04-04T00:00:00Z",
-            "description": "This composite picture is a seamless blend of ultra-sharp NASA Hubble Space Telescope (HST) images combined with the wide view of the Mosaic Camera on the National Science Foundation's 0.9-meter telescope at Kitt Peak National Observatory, part of the National Optical Astronomy Observatory, near Tucson, Ariz. Astronomers at the Space Telescope Science Institute assembled these images into a mosaic. The mosaic was then blended with a wider photograph taken by the Mosaic Camera. The image shows a fine web of filamentary \"bicycle-spoke\" features embedded in the colorful red and blue gas ring, which is one of the nearest planetary nebulae to Earth.      Because the nebula is nearby, it appears as nearly one-half the diameter of the full Moon. This required HST astronomers to take several exposures with the Advanced Camera for Surveys to capture most of the Helix. HST views were then blended with a wider photo taken by the Mosaic Camera. The portrait offers a dizzying look down what is actually a trillion-mile-long tunnel of glowing gases. The fluorescing tube is pointed nearly directly at Earth, so it looks more like a bubble than a cylinder. A forest of thousands of comet-like filaments, embedded along the inner rim of the nebula, points back toward the central star, which is a small, super-hot white dwarf.      The tentacles formed when a hot \"stellar wind\" of gas plowed into colder shells of dust and gas ejected previously by the doomed star. Ground-based telescopes have seen these comet-like filaments for decades, but never before in such detail. The filaments may actually lie in a disk encircling the hot star, like a collar. The radiant tie-die colors correspond to glowing oxygen (blue) and hydrogen and nitrogen (red).      Valuable Hubble observing time became available during the November 2002 Leonid meteor storm. To protect the spacecraft, including HST's precise mirror, controllers turned the aft end into the direction of the meteor stream for about half a day. Fortunately, the Helix Nebula was almost exactly in the opposite direction of the meteor stream, so Hubble used nine orbits to photograph the nebula while it waited out the storm. To capture the sprawling nebula, Hubble had to take nine separate snapshots.      Planetary nebulae like the Helix are sculpted late in a Sun-like star's life by a torrential gush of gases escaping from the dying star. They have nothing to do with planet formation, but got their name because they look like planetary disks when viewed through a small telescope. With higher magnification, the classic \"donut-hole\" in the middle of a planetary nebula can be resolved. Based on the nebula's distance of 650 light-years, its angular size corresponds to a huge ring with a diameter of nearly 3 light-years. That's approximately three-quarters of the distance between our Sun and the nearest star.      The Helix Nebula is a popular target of amateur astronomers and can be seen with binoculars as a ghostly, greenish cloud in the constellation Aquarius. Larger amateur telescopes can resolve the ring-shaped nebula, but only the largest ground-based telescopes can resolve the radial streaks. After careful analysis, astronomers concluded the nebula really isn't a bubble, but is a cylinder that happens to be pointed toward Earth.   http://photojournal.jpl.nasa.gov/catalog/PIA18164",
-            "keywords": [
-                "Helix Hebula",
-                "Hubble Space Telescope"
             ]
         },
         {
@@ -269,12 +236,13 @@ interface ThumbnailInfo {
 }),
 // Getters here
 getters:  {
-
+    selectedImg(state) {
+        return (nasaID: string | string[]) => {
+        return state.nasaExampleImgs.find(exImg => exImg?.nasa_id === nasaID)
+        }
+    }
+    
 }
 
-
-
-
-  
   });
   
