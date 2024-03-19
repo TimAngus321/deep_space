@@ -23,9 +23,9 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
   },
   actions: {
     async nasaImgSearch(q: string) {
+      this.isFetching = true;
       const url: string = "https://images-api.nasa.gov/search?q=";
       const extraParams: string = "&media_type=image";
-      this.isFetching = true;
 
       try {
         const { data: images }: any = await useFetch(
