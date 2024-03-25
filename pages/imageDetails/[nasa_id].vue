@@ -4,11 +4,22 @@ console.log(nasa_id)
 
 // To pass data add a store like Pinia 
 // Request needed from Nasa (for large img etc): https://images-api.nasa.gov/asset/
-// const uri = 'https://fakestoreapi.com/products/' + id
 
 const nasaImgsStore = useFetchedImgsStore();
 const selectedImg = nasaImgsStore.selectedImg(nasa_id);
 
+
+const url = 'https://images-api.nasa.gov/asset/'
+
+const { pending, data: details }: any = await useFetch(
+    `${url}${nasa_id}`,
+    {
+      lazy: true,
+      server: true,
+    }
+  );
+
+  console.log(details)
 
 </script>
 

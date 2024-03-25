@@ -84,39 +84,11 @@
     </UContainer>
   </main>
 </template>
-
 <script setup lang="ts">
+
 const q: Ref<string> = ref("");
-// Remember to remove all comments and add loading state when API call is running
-// Also remove unnecessary composables and stores
-// let thumbnailInfo: any = reactive([]);
-
-// Move into Pinia store
-const isFetching: Ref<boolean> = ref(false);
-
-// Replace with new Pinia store!
-// const store = useFetchedImagesStore();
-// await useAsyncData('thumbnailInfoList', () => store.useNasaImgSearch(q).then(() => true))
-
 const nasaImgsStore = useFetchedImgsStore();
-console.log(nasaImgsStore.nasaImgs.length);
 
-// const searchNasaLibrary: any = async () => {
-//   isFetching.value = true;
-//   try {
-//     if (q?.value) {
-//       const result = await useNasaImgSearch(q?.value);
-//       thumbnailInfo.value = result?.thumbnailInfoList;
-//       console.log(thumbnailInfo?.value);
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   isFetching.value = false;
-//   return {
-//     thumbnailInfo
-//   };
-// };
 </script>
 
 <style lang="scss" scoped></style>
