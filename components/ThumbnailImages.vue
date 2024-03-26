@@ -7,6 +7,7 @@ const props = defineProps({
 });
 
 const { thumbnailInfo } = props;
+
 </script>
 
 <template>
