@@ -12,10 +12,6 @@ export const useImgDetailsStore = defineStore("imgDetails", {
       try {
         const { pending, data: details }: any = await useFetch(
           `${url}${nasa_id}`,
-          {
-            lazy: true,
-            server: false,
-          }
         );
         console.log(details)
         console.log('new img arr', details?._rawValue?.collection?.items)
