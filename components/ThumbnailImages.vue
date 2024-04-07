@@ -12,10 +12,11 @@ const { thumbnailInfo } = props;
 
 <template>
       <NuxtLink :to="`imageDetails/${thumbnailInfo?.nasa_id}`">
-        <img
+        <NuxtPicture
           :key="thumbnailInfo?.nasa_id"
           :src="thumbnailInfo?.thumbnail"
           alt="Thumbnail"
+          loading="lazy"
         />
       </NuxtLink>
 </template>

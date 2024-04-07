@@ -22,21 +22,26 @@ console.log(imgDetailsStore.imgArr);
 //   console.log(imgArr)
 
 //   console.log(betterImages)
-
 </script>
 
 <template>
-  <div>
-    <h1>Nasa ID: {{ nasa_id }}</h1>
-    <p>Img Tite: {{ selectedImg?.title }}</p>
+  <div class="flex flex-row h-full justify-between gap-20 w-full p-4">
     <div v-if="!imgDetailsStore.isFetching && imgDetailsStore.imgArr">
-      <img :src="imgDetailsStore.imgArr[0]?.href" alt="" />
+      <NuxtPicture
+        :src="imgDetailsStore.imgArr[0]?.href"
+        :alt="selectedImg?.title"
+        loading="lazy"
+        height="100%"
+        width="100%"
+      />
     </div>
-    <div
-      v-else-if="imgDetailsStore.isFetching && !imgDetailsStore.imgArr"
-    >
-    <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
-  </div>
+    <div v-else-if="imgDetailsStore.isFetching && !imgDetailsStore.imgArr">
+      <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
+    </div>
+    <div>
+      <h1>Nasa ID: {{ nasa_id }}</h1>
+      <p>Img Tite: {{ selectedImg?.title }}</p>
+    </div>
   </div>
 </template>
 
