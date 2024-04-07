@@ -9,7 +9,7 @@
     </header>
 
     <div class="flex flex-row h-full justify-between gap-20 w-full p-4">
-      <div class="flex flex-col flex-wrap p-2 gap-2 w-6/12 self-center">
+      <div class="flex flex-1 flex-col flex-wrap p-2 gap-2 w-6/12 self-center">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
@@ -43,16 +43,16 @@
       <div class="flex w-6/12">
         <div
           v-if="isImg"
-          class="flex flex-wrap w-full object-contain content-center"
+          class="flex flex-1 flex-wrap w-full content-center"
         >
           <NuxtPicture
-            fit="cover"
+            fit="contain"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            class="w-full flex justify-center"
+            class="w-full max-h-full object-contain flex justify-center"
           />
         </div>
-        <div v-else class="flex flex-wrap w-full object-contain content-center">
+        <div v-else class="flex flex-1 flex-wrap w-full object-contain content-center">
           <iframe
             :src="dailyImageVideo"
             frameborder="0"
@@ -75,10 +75,7 @@ const apiKey: string = config.public.apiKey;
 const url: string = `https://api.nasa.gov/planetary/apod?api_key=`;
 let isImg: boolean = true;
 
-const { data: images }: any = await useFetch(`${url}${apiKey}`, {
-  lazy: true,
-  server: true,
-});
+const { data: images }: any = await useFetch(`${url}${apiKey}`);
 
 console.log(images)
 

@@ -1,29 +1,25 @@
 export const useImgDetailsStore = defineStore("imgDetails", {
   state: () => ({
     imgArr: [],
+    imgDetails: [],
     fetchIssues: "",
     hasFetchIssues: false,
     isFetching: false,
   }),
   actions: {
-    async getImgDetails(nasa_id: string) {
+    async getImgArr(nasa_id: string) {
       this.isFetching = true;
       const url = "https://images-api.nasa.gov/asset/";
       try {
         const { pending, data: details }: any = await useFetch(
-          `${url}${nasa_id}`,
+          `${url}${nasa_id}`
         );
-        console.log(details)
-        console.log('new img arr', details?._rawValue?.collection?.items)
-    //    const getImgArr = details?._rawValue?.collection?.items;
-    //    console.log(getImgArr)
-       this.imgArr = details?._rawValue?.collection?.items;
-    //    ?.items?.find((img: string) => img.includes("large"));
-    //    for (const imgLinks of imgArr) {
-    //     if (imgLinks.)
-    //    }
-    
-    
+
+        // As far as I can tell all the array data has jpg as backups. There's not enough
+        // info to be sure but this should filter out any weird file formats for the "orig" file
+        this.imgArr = details?._rawValue?.collection?.items.filter((img) =>
+          img?.href.includes(".jpg")
+        );
       } catch (error) {
         this.isFetching = false;
         this.hasFetchIssues = true;
@@ -31,6 +27,19 @@ export const useImgDetailsStore = defineStore("imgDetails", {
         console.error("Error fetching NASA images:", error);
       } finally {
         this.isFetching = false;
+      }
+    },
+    async getImgDetailsAgain(nasa_id: string) {
+      const searchImgDataUrl = "https://images-api.nasa.gov/search?q=";
+      try {
+        const { pending, data: fetchedImgDetails }: any = await useFetch(
+          `${searchImgDataUrl}${nasa_id}`
+        );
+        this.imgDetails = fetchedImgDetails._rawValue?.collection?.items[0]?.data[0];
+      } catch (error) {
+        console.error("Error fetching NASA images:", error);
+      } finally {
+        console.log("imgDetails fetched again successfully");
       }
     },
   },
