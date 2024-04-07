@@ -1,42 +1,51 @@
 <script setup lang="ts">
 const { nasa_id } = useRoute().params;
-console.log(nasa_id);
-
-// To pass data add a store like Pinia
-// Request needed from Nasa (for large img etc): https://images-api.nasa.gov/asset/
 
 const nasaImgsStore = useFetchedImgsStore();
-const selectedImg = nasaImgsStore.selectedImg(nasa_id);
+let selectedImgDetails = nasaImgsStore.selectedImg(nasa_id);
 
-const imgDetailsStore = useImgDetailsStore();
-imgDetailsStore.getImgDetails(nasa_id);
-console.log(imgDetailsStore.imgArr);
-
-// const url = 'https://images-api.nasa.gov/asset/'
-
-// const { pending, data: betterImages }: any = await useFetch(
-//     `${url}${nasa_id}`,
-//   );
-
-//   const imgArr = betterImages ? betterImages?._rawValue?.collection?.items : [];
-//   console.log(imgArr)
-
-//   console.log(betterImages)
-
+const imgArrStore = useImgDetailsStore();
+imgArrStore.getImgArr(nasa_id);
+imgArrStore.getImgDetailsAgain(nasa_id);
 </script>
 
 <template>
-  <div>
-    <h1>Nasa ID: {{ nasa_id }}</h1>
-    <p>Img Tite: {{ selectedImg?.title }}</p>
-    <div v-if="!imgDetailsStore.isFetching && imgDetailsStore.imgArr">
-      <img :src="imgDetailsStore.imgArr[0]?.href" alt="" />
-    </div>
+  <div class="flex flex-row justify-between gap-20 w-full py-4">
     <div
-      v-else-if="imgDetailsStore.isFetching && !imgDetailsStore.imgArr"
+      class="flex flex-1 w-full content-center object-contain"
+      v-if="!imgArrStore.isFetching && imgArrStore.imgArr"
     >
-    <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
-  </div>
+
+    <!-- ToDo sort out how to handle images correctly. (don't strech the height)-->
+      <NuxtPicture
+        fit="contain"
+        :src="imgArrStore.imgArr[0]?.href"
+        :alt="selectedImgDetails?.title"
+        loading="lazy"
+        class="flex flex-1 w-full object-contain justify-center py-4"
+        placeholder
+      />
+    </div>
+    <div v-else-if="imgArrStore.isFetching">
+      <USkeleton class="w-[full] h-[full] dark:bg-gray-700" />
+    </div>
+    <div v-else-if="!imgArrStore.imgArr">
+      <p>Issue getting image</p>
+    </div>
+    <div class="flex flex-1 flex-col gap-10 py-4">
+      <div class="flex flex-col gap-2" v-if="selectedImgDetails">
+        <h1>{{ selectedImgDetails?.title }}</h1>
+        <p v-html="selectedImgDetails?.description"></p>
+        <p>Keywords: {{ selectedImgDetails?.keywords }}</p>
+        <p>Nasa ID: {{ nasa_id }}</p>
+      </div>
+      <div class="flex flex-col gap-2" v-else-if="imgArrStore?.imgDetails">
+        <h1>{{ imgArrStore?.imgDetails?.title }}</h1>
+        <p v-html="imgArrStore?.imgDetails?.description"></p>
+        <p>Keywords: {{ imgArrStore?.imgDetails?.keywords }}</p>
+        <p>Nasa ID: {{ nasa_id }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
