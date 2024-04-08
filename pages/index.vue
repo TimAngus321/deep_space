@@ -43,7 +43,7 @@
       <div class="flex w-6/12">
         <div
           v-if="isImg"
-          class="flex flex-1 flex-wrap w-full content-center"
+          class="flex flex-1 flex-wrap w-full h-fit content-center"
         >
           <NuxtPicture
             fit="contain"
@@ -57,7 +57,7 @@
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
-            class="w-full h-full flex justify-center"
+            class="w-full h-fit flex justify-center"
           ></iframe>
         </div>
       </div>

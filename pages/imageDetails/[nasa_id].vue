@@ -10,9 +10,9 @@ imgArrStore.getImgDetailsAgain(nasa_id);
 </script>
 
 <template>
-  <div class="flex flex-row justify-between gap-20 w-full py-4">
+  <div class="flex flex-row justify-between gap-20 w-full h-auto py-4">
     <div
-      class="flex flex-1 w-full content-center object-contain"
+      class="flex flex-1 w-full max-w-full h-full content-center object-contain"
       v-if="!imgArrStore.isFetching && imgArrStore.imgArr"
     >
 
@@ -21,8 +21,11 @@ imgArrStore.getImgDetailsAgain(nasa_id);
         fit="contain"
         :src="imgArrStore.imgArr[0]?.href"
         :alt="selectedImgDetails?.title"
+        sizes="100vw sm:50vw md:400px"
+        height="auto"
+        width="100%"
         loading="lazy"
-        class="flex flex-1 w-full object-contain justify-center py-4"
+        class="flex flex-1 w-full h-fit object-contain justify-center py-4"
         placeholder
       />
     </div>
