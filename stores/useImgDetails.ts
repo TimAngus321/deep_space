@@ -9,6 +9,8 @@ export const useImgDetailsStore = defineStore("imgDetails", {
   actions: {
     async getImgArr(nasa_id: string) {
       this.isFetching = true;
+      const config = useRuntimeConfig();
+      const apiKey: string = config.public.apiKey;
       const url = "https://images-api.nasa.gov/asset/";
       try {
         const { pending, data: details }: any = await useFetch(
@@ -17,9 +19,21 @@ export const useImgDetailsStore = defineStore("imgDetails", {
 
         // As far as I can tell all the array data has jpg as backups. There's not enough
         // info to be sure but this should filter out any weird file formats for the "orig" file
-        this.imgArr = details?._rawValue?.collection?.items.filter((img) =>
-          img?.href.includes(".jpg")
-        );
+        const filteredImgArr = details?._rawValue?.collection?.items.filter((img) =>
+        img?.href.includes(".jpg"));
+
+        // For each image href create a new array changing http to https. I know they exist just 
+        // need to mod the img src
+        const httpsImgArr = filteredImgArr?.map(item => {
+          return {
+              href: item.href.replace("http", 'https')
+          };
+      });
+
+        console.log(httpsImgArr)
+        this.imgArr = httpsImgArr;
+
+
       } catch (error) {
         this.isFetching = false;
         this.hasFetchIssues = true;
