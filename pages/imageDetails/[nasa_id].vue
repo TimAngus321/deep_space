@@ -7,6 +7,7 @@ let selectedImgDetails = nasaImgsStore.selectedImg(nasa_id);
 const imgArrStore = useImgDetailsStore();
 imgArrStore.getImgArr(nasa_id);
 imgArrStore.getImgDetailsAgain(nasa_id);
+
 </script>
 
 <template>
@@ -15,8 +16,8 @@ imgArrStore.getImgDetailsAgain(nasa_id);
       class="flex flex-1 w-full max-w-full h-full content-center object-contain"
       v-if="!imgArrStore.isFetching && imgArrStore.imgArr"
     >
-
     <!-- ToDo sort out how to handle images correctly. (don't strech the height)-->
+    <NuxtLink :to="imgArrStore.imgArr[0]?.href">
       <NuxtPicture
         fit="contain"
         :src="imgArrStore.imgArr[0]?.href"
@@ -28,6 +29,7 @@ imgArrStore.getImgDetailsAgain(nasa_id);
         class="flex flex-1 w-full h-fit object-contain justify-center py-4"
         placeholder
       />
+    </NuxtLink>
     </div>
     <div v-else-if="imgArrStore.isFetching">
       <USkeleton class="w-[full] h-[full] dark:bg-gray-700" />

@@ -28,7 +28,7 @@
           Technology focus of this app:
         </h3>
         <p class="p-2">
-          This app uses Nuxt, Vue, Tailwind, Pinia, GraphQL, Apollo, Docker and
+          This app uses Nuxt, Vue, Tailwind, Pinia, GraphQL, Apollo and
           MongoDB Atlas as a tech stack and will be hosted on Vercel.
         </p>
         <h3
@@ -40,7 +40,7 @@
           Allow user to experience more Nasa APIs for space info!
         </p>
       </div>
-      <div class="flex w-6/12">
+      <div class="flex w-6/12 items-center">
         <div
           v-if="isImg"
           class="flex flex-1 flex-wrap w-full h-fit content-center"

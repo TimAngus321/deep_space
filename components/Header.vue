@@ -15,12 +15,23 @@
         <NuxtLink to="/nasaImgSearch" class="hover:text-primary p-2"
           >Image Search</NuxtLink
         >
-        <NuxtLink to="/profile" class="hover:text-primary p-2"
-          ><UAvatar
-            class="flex align-middle"
-            src="https://avatars.githubusercontent.com/u/739984?v=4"
-            alt="Avatar"
-        /></NuxtLink>
+        <UPopover
+          mode="hover"
+          :popper="{ placement: 'bottom-end', offsetDistance: 0 }"
+        >
+          <template #panel>
+            <div class="p-8">
+             <p>Profile Content Coming Soon</p>
+            </div>
+          </template>
+          <NuxtLink to="/" class="hover:text-primary p-2">
+            <UAvatar
+              class="flex align-middle"
+              src="https://avatars.githubusercontent.com/u/739984?v=4"
+              alt="Avatar"
+            />
+          </NuxtLink>
+        </UPopover>
       </div>
     </nav>
   </header>

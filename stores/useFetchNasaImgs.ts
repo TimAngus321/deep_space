@@ -1,10 +1,10 @@
 interface ThumbnailInfo {
-  thumbnail: string;
+  thumbnail?: string;
   nasa_id?: string;
-  title: string;
-  date_created: string;
-  description: string;
-  keywords: string[];
+  title?: string;
+  date_created?: string;
+  description?: string;
+  keywords?: string[];
 }
 
 export const useFetchedImgsStore = defineStore("fetchedImages", {
