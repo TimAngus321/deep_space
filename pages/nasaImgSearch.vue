@@ -10,7 +10,7 @@
 
     <UContainer padding="0" class="flex flex-row w-full h-full items-center">
       <section class="w-full h-full">
-        <div class="flex flex-row flex-shrink gap-6 w-full">
+        <div class="flex flex-row flex-shrink gap-1 lg:gap-6 w-full">
           <UInput
             class="flex-grow-3 w-full"
             color="gray"
@@ -56,7 +56,7 @@
       -->
         <div
           v-if="nasaImgsStore.isFetching"
-          class="py-10 grid grid-cols-4 gap-5"
+          class="py-10 grid grid-cols-3 gap-2 lg:grid-cols-4 lg:gap-5"
         >
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
           <USkeleton class="w-[275px] h-[275px] dark:bg-gray-700" />
@@ -75,7 +75,7 @@
         <div v-else-if="nasaImgsStore.hasFetchIssues" class="flex justify-center py-10">
           <h3>{{ nasaImgsStore.fetchIssues }}</h3>
           </div>
-          <div v-else class="py-10 grid grid-cols-4 gap-5">
+          <div v-else class="py-10 grid grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5">
             <figure v-for="thumbData in nasaImgsStore.nasaImgs">
               <ThumbnailImages :thumbnailInfo="thumbData" />
             </figure>

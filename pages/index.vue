@@ -1,6 +1,6 @@
 <template>
-  <main class="flex flex-col h-full gap-6">
-    <header class="flex justify-center">
+  <main class="flex flex-col h-full lg:gap-6 gap-2">
+    <header class="flex justify-center p-2">
       <h1
         class="p-2 text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200"
       >
@@ -8,8 +8,8 @@
       </h1>
     </header>
 
-    <div class="flex flex-row h-full justify-between gap-20 w-full p-4">
-      <div class="flex flex-1 flex-col flex-wrap p-2 gap-2 w-6/12 self-center">
+    <div class="flex lg:flex-row flex-col-reverse lg:h-full max-h-max lg:w-full justify-between gap-5 lg:gap-20 w-full  p-4">
+      <div class="flex flex-1 flex-wrap p-2 gap-2 w-full lg:w-6/12 self-center ">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
@@ -40,16 +40,16 @@
           Allow user to experience more Nasa APIs for space info!
         </p>
       </div>
-      <div class="flex w-6/12 items-center">
+      <div class="flex lg:w-6/12 w-full justify-center items-center">
         <div
           v-if="isImg"
-          class="flex flex-1 flex-wrap w-full h-fit content-center"
+          class="flex flex-1 flex-wrap w-full h-fit justify-center content-center"
         >
           <NuxtPicture
             fit="contain"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            class="w-full max-h-full object-contain flex justify-center"
+            class="w-full max-h-max object-contain flex justify-center"
           />
         </div>
         <div v-else class="flex flex-1 flex-wrap w-full object-contain content-center">

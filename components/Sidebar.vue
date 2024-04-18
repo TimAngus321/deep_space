@@ -1,5 +1,5 @@
 <template>
-  <aside dir="rtl" class="h-full flex basis-20 text-textDefault dark:bg-gray-800">
+  <aside dir="rtl" class="h-full lg:flex basis-20 text-textDefault dark:bg-gray-800 hidden lg:visible">
     <div class="flex flex-col-reverse gap-8 p-7 fixed -bottom-0">
       <NuxtLink
         to="https://www.linkedin.com/in/timothy-angus-b94969113/"
