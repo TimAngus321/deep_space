@@ -2,7 +2,7 @@
     Add github & linkedin logos with links
  -->
  <template>
-    <footer dir="rtl" class="h-full flex basis-20 text-textDefault dark:bg-gray-800 lg:hidden items-center">
+    <footer dir="rtl" class="h-full flex basis-20 text-textDefault dark:bg-transparent bg-transparent bg-opacity-5 lg:hidden items-center">
       <div class="flex flex-row gap-4 p-4 items-center fixed -bottom-0">
         <NuxtLink
           to="https://www.linkedin.com/in/timothy-angus-b94969113/"
