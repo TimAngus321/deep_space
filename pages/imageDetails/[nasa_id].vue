@@ -10,7 +10,7 @@ imgArrStore.getImgDetailsAgain(nasa_id);
 </script>
 
 <template>
-  <div class="flex flex-row justify-between gap-20 w-full h-auto py-4">
+  <div class="flex lg:flex-row flex-col justify-between gap-2 lg:gap-20 w-full h-auto py-4">
     <div
       class="flex flex-1 w-full max-w-full h-full justify-center object-contain"
       v-if="!imgArrStore.isFetching && imgArrStore.imgArr"
@@ -53,7 +53,7 @@ imgArrStore.getImgDetailsAgain(nasa_id);
         >
           {{ imgArrStore?.imgDetails?.title }}
         </h1>
-        <p v-html="selectedImgDetails?.description"></p>
+        <p v-html="imgArrStore?.imgDetails?.description"></p>
         <p>Keywords: {{ imgArrStore?.imgDetails?.keywords }}</p>
         <p>Nasa ID: {{ nasa_id }}</p>
       </div>

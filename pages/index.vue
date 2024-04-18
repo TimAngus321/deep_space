@@ -8,8 +8,8 @@
       </h1>
     </header>
 
-    <div class="flex lg:flex-row flex-col-reverse lg:h-full max-h-max lg:w-full justify-between gap:5 lg:gap-20 w-full  p-4">
-      <div class="flex flex-1 flex-wrap p-2 gap-2 w-6/12 self-center ">
+    <div class="flex lg:flex-row flex-col-reverse lg:h-full max-h-max lg:w-full justify-between gap-5 lg:gap-20 w-full  p-4">
+      <div class="flex flex-1 flex-wrap p-2 gap-2 w-full lg:w-6/12 self-center ">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
@@ -49,7 +49,7 @@
             fit="contain"
             format="avif,webp,jpg"
             :src="dailyImageVideo"
-            class="w-full max-h-full object-contain flex justify-center"
+            class="w-full max-h-max object-contain flex justify-center"
           />
         </div>
         <div v-else class="flex flex-1 flex-wrap w-full object-contain content-center">
