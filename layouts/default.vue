@@ -7,8 +7,8 @@
         <slot />
       </div>
     </div>
-    <Footer />
   </main>
+  <Footer />
 </template>
 
 <style scoped>

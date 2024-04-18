@@ -8,8 +8,10 @@
       </h1>
     </header>
 
-    <div class="flex lg:flex-row flex-col-reverse lg:h-full max-h-max lg:w-full justify-between gap-5 lg:gap-20 w-full  p-4">
-      <div class="flex flex-1 flex-wrap p-2 gap-2 w-full lg:w-6/12 self-center ">
+    <div
+      class="flex lg:flex-row flex-col-reverse lg:h-full max-h-max lg:w-full justify-between gap-5 lg:gap-20 w-full p-4"
+    >
+      <div class="flex flex-1 flex-col p-2 gap-2 w-full lg:w-6/12 self-center">
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
         >
@@ -28,8 +30,8 @@
           Technology focus of this app:
         </h3>
         <p class="p-2">
-          This app uses Nuxt, Vue, Tailwind, Pinia, GraphQL, Apollo and
-          MongoDB Atlas as a tech stack and will be hosted on Vercel.
+          This app uses Nuxt, Vue, Tailwind, Pinia, GraphQL, Apollo and MongoDB
+          Atlas as a tech stack and will be hosted on Vercel.
         </p>
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
@@ -52,7 +54,10 @@
             class="w-full max-h-max object-contain flex justify-center"
           />
         </div>
-        <div v-else class="flex flex-1 flex-wrap w-full object-contain content-center">
+        <div
+          v-else
+          class="flex flex-1 flex-wrap w-full object-contain content-center"
+        >
           <iframe
             :src="dailyImageVideo"
             frameborder="0"
@@ -77,7 +82,7 @@ let isImg: boolean = true;
 
 const { data: images }: any = await useFetch(`${url}${apiKey}`);
 
-console.log(images)
+console.log(images);
 
 let dailyImageVideo: string = "";
 

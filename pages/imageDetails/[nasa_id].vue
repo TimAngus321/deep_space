@@ -10,7 +10,9 @@ imgArrStore.getImgDetailsAgain(nasa_id);
 </script>
 
 <template>
-  <div class="flex lg:flex-row flex-col justify-between gap-2 lg:gap-20 w-full h-auto py-4">
+  <div
+    class="flex lg:flex-row flex-col justify-between gap-2 lg:gap-20 w-full h-auto py-4"
+  >
     <div
       class="flex flex-1 w-full max-w-full h-full justify-center object-contain"
       v-if="!imgArrStore.isFetching && imgArrStore.imgArr"
@@ -37,25 +39,43 @@ imgArrStore.getImgDetailsAgain(nasa_id);
       <p>Issue getting image</p>
     </div>
     <div class="flex flex-1 flex-col gap-10 py-4">
-      <div class="flex flex-col gap-2" v-if="selectedImgDetails">
+      <div class="flex flex-col py-2" v-if="selectedImgDetails">
         <h1
           class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200"
         >
           {{ selectedImgDetails?.title }}
         </h1>
-        <p v-html="selectedImgDetails?.description"></p>
-        <p>Keywords: {{ selectedImgDetails?.keywords }}</p>
-        <p>Nasa ID: {{ nasa_id }}</p>
+        <p class="font-light text-gray-500">
+          {{
+            new Date(selectedImgDetails?.date_created)?.toLocaleDateString(
+              "en-GB"
+            )
+          }}
+        </p>
+        <div class="flex flex-col gap-2 py-2">
+          <p v-html="selectedImgDetails?.description"></p>
+          <p>Keywords: {{ selectedImgDetails?.keywords.flat().toString().replace(/,/g, ', ') }}</p>
+          <p>Nasa ID: {{ nasa_id }}</p>
+        </div>
       </div>
-      <div class="flex flex-col gap-2" v-else-if="imgArrStore?.imgDetails">
+      <div class="flex flex-col py-2" v-else-if="imgArrStore?.imgDetails">
         <h1
           class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200"
         >
           {{ imgArrStore?.imgDetails?.title }}
         </h1>
-        <p v-html="imgArrStore?.imgDetails?.description"></p>
-        <p>Keywords: {{ imgArrStore?.imgDetails?.keywords }}</p>
-        <p>Nasa ID: {{ nasa_id }}</p>
+        <p class="font-light text-gray-500">
+          {{
+            new Date(imgArrStore?.imgDetails?.date_created)?.toLocaleDateString(
+              "en-GB"
+            )
+          }}
+        </p>
+        <div class="flex flex-col gap-2 py-2">
+          <p v-html="imgArrStore?.imgDetails?.description"></p>
+          <p>Keywords: {{ imgArrStore?.imgDetails?.keywords.flat().toString().replace(/,/g, ', ') }}</p>
+          <p>Nasa ID: {{ nasa_id }}</p>
+        </div>
       </div>
     </div>
   </div>
