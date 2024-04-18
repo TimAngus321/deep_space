@@ -2,6 +2,8 @@ interface ThumbnailInfo {
   thumbnail?: string;
   nasa_id?: string;
   title?: string;
+  secondary_creator: string,
+  center: string,
   date_created?: string;
   description?: string;
   keywords?: string[];
@@ -53,6 +55,8 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
                     thumbnail: link.href,
                     nasa_id: dataItem.nasa_id,
                     title: dataItem.title,
+                    secondary_creator: dataItem.secondary_creator,
+                    center: dataItem.center,
                     date_created: dataItem.date_created,
                     description: dataItem.description,
                     keywords: dataItem.keywords,

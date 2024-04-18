@@ -45,7 +45,10 @@ imgArrStore.getImgDetailsAgain(nasa_id);
         >
           {{ selectedImgDetails?.title }}
         </h1>
-        <p class="font-light text-gray-500">
+        <p
+          v-if="selectedImgDetails?.date_created"
+          class="font-light text-gray-500"
+        >
           {{
             new Date(selectedImgDetails?.date_created)?.toLocaleDateString(
               "en-GB"
@@ -53,8 +56,21 @@ imgArrStore.getImgDetailsAgain(nasa_id);
           }}
         </p>
         <div class="flex flex-col gap-2 py-2">
-          <p v-html="selectedImgDetails?.description"></p>
-          <p>Keywords: {{ selectedImgDetails?.keywords.flat().toString().replace(/,/g, ', ') }}</p>
+          <p
+            v-if="selectedImgDetails?.description"
+            v-html="selectedImgDetails?.description"
+          ></p>
+          <p v-if="selectedImgDetails?.keywords">
+            Keywords:
+            {{
+              selectedImgDetails?.keywords
+                ?.flat()
+                ?.toString()
+                ?.replace(/,/g, ", ")
+            }}
+          </p>
+          <p v-if="selectedImgDetails?.center">Center: {{ selectedImgDetails?.center }}</p>
+          <p v-if="selectedImgDetails?.secondary_creator">Secondary Creator: {{ selectedImgDetails?.secondary_creator }}</p>
           <p>Nasa ID: {{ nasa_id }}</p>
         </div>
       </div>
@@ -64,7 +80,10 @@ imgArrStore.getImgDetailsAgain(nasa_id);
         >
           {{ imgArrStore?.imgDetails?.title }}
         </h1>
-        <p class="font-light text-gray-500">
+        <p
+          v-if="imgArrStore?.imgDetails?.date_created"
+          class="font-light text-gray-500"
+        >
           {{
             new Date(imgArrStore?.imgDetails?.date_created)?.toLocaleDateString(
               "en-GB"
@@ -72,8 +91,23 @@ imgArrStore.getImgDetailsAgain(nasa_id);
           }}
         </p>
         <div class="flex flex-col gap-2 py-2">
-          <p v-html="imgArrStore?.imgDetails?.description"></p>
-          <p>Keywords: {{ imgArrStore?.imgDetails?.keywords.flat().toString().replace(/,/g, ', ') }}</p>
+          <p
+            v-if="imgArrStore?.imgDetails?.description"
+            v-html="imgArrStore?.imgDetails?.description"
+          ></p>
+          <p v-if="selectedImgDetails?.keywords">
+            Keywords:
+            {{
+              imgArrStore?.imgDetails?.keywords &&
+              imgArrStore?.imgDetails?.keywords
+                ?.flat()
+                ?.toString()
+                ?.replace(/,/g, ", ")
+            }}
+          </p>
+          <p v-if="imgArrStore?.imgDetails?.center">Center: {{ imgArrStore?.imgDetails?.center }}</p>
+          <p v-if="imgArrStore?.imgDetails?.secondary_creator">Secondary Creator: {{ imgArrStore?.imgDetails?.secondary_creator }}</p>
+
           <p>Nasa ID: {{ nasa_id }}</p>
         </div>
       </div>
