@@ -42,10 +42,10 @@
           Allow user to experience more Nasa APIs for space info!
         </p>
       </div>
-      <div class="flex lg:w-6/12 w-full justify-center items-center">
+      <div class="flex lg:w-6/12 w-full max-h-max justify-center items-center">
         <div
           v-if="isImg"
-          class="flex flex-1 flex-wrap w-full h-fit justify-center content-center"
+          class="flex flex-1 flex-wrap w-full max-h-max justify-center content-center"
         >
           <NuxtPicture
             fit="contain"
@@ -56,13 +56,13 @@
         </div>
         <div
           v-else
-          class="flex flex-1 flex-wrap w-full object-contain content-center"
+          class="flex flex-1 flex-wrap w-full h-full object-contain content-center"
         >
           <iframe
             :src="dailyImageVideo"
             frameborder="0"
             allowfullscreen
-            class="w-full h-fit flex justify-center"
+            class="w-full max-h-max h-full flex justify-center"
           ></iframe>
         </div>
       </div>
@@ -81,8 +81,6 @@ const url: string = `https://api.nasa.gov/planetary/apod?api_key=`;
 let isImg: boolean = true;
 
 const { data: images }: any = await useFetch(`${url}${apiKey}`);
-
-console.log(images);
 
 let dailyImageVideo: string = "";
 

@@ -38,7 +38,6 @@ export const useFetchedImgsStore = defineStore("fetchedImages", {
           }
         );
 
-        console.log('images ', images)
         const imageData = images?._rawValue?.collection?.items;
         
         this.nasaImgs.splice(0);

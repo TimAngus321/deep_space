@@ -30,7 +30,6 @@ export const useImgDetailsStore = defineStore("imgDetails", {
           };
       });
 
-        console.log(httpsImgArr)
         this.imgArr = httpsImgArr;
 
 

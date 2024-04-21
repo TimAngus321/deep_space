@@ -11,7 +11,7 @@ imgArrStore.getImgDetailsAgain(nasa_id);
 
 <template>
   <div
-    class="flex lg:flex-row flex-col justify-between gap-2 lg:gap-20 w-full h-auto py-4"
+    class="flex lg:flex-row flex-col justify-between gap-2 lg:gap-20 w-full h-auto pb-4"
   >
     <div
       class="flex flex-1 w-full max-w-full h-full justify-center object-contain"
