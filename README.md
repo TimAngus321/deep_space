@@ -1,11 +1,12 @@
 # nasa_space_images
 
+# Deployed on Vercel:
+Check out the current status of the deployed app [here](https://deep-space-seven.vercel.app/)
+
 # TODO: 
 
 - Create layout and structure of profile favs, recently searched and settings if any.
 - If it makes sense set up MongoDB Atlas and GraphQL for database and fetching data from DB
-- Set up docker for Nuxt
-- Improve layout and tailwind setup
 - Cleanup code
 
 # Default Nuxt Info Geneated
