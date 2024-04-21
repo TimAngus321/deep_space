@@ -82,8 +82,6 @@ let isImg: boolean = true;
 
 const { data: images }: any = await useFetch(`${url}${apiKey}`);
 
-console.log(images);
-
 let dailyImageVideo: string = "";
 
 if (images._rawValue?.hdurl > 0) {
