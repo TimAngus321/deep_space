@@ -5,8 +5,8 @@ Check out the current status of the deployed app [here](https://deep-space-seven
 
 # TODO: 
 
-- Create layout and structure of profile favs, recently searched and settings if any.
 - If it makes sense set up MongoDB Atlas and GraphQL for database and fetching data from DB
+- Allow users to make a profile to save favorites (think up more usecases before moving ahead with this)
 - Cleanup code
 
 # Default Nuxt Info Geneated
