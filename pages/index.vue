@@ -19,8 +19,7 @@
         </h3>
         <p class="p-2">
           This app allows you to search for incredible images of deep space and
-          other great images using Nasa's APIs then you can create a profile
-          where you can save your favorite finds. This app can also be extended
+          other great images using Nasa's APIs. This app could also be extended
           to use other APIs to search for comets or get updates for various
           space projects.
         </p>
@@ -30,8 +29,7 @@
           Technology focus of this app:
         </h3>
         <p class="p-2">
-          This app uses Nuxt, Vue, Tailwind, Pinia, GraphQL, Apollo and MongoDB
-          Atlas as a tech stack and will be hosted on Vercel.
+          This app uses Nuxt, Vue, Tailwind, Pinia as a tech stack and is hosted on Vercel.
         </p>
         <h3
           class="p-2 text-1xl sm:text-3xl font-bold text-slate-900 tracking-tight dark:text-slate-200"
@@ -39,7 +37,8 @@
           Ideas to add:
         </h3>
         <p class="p-2">
-          Allow user to experience more Nasa APIs for space info!
+          Allow user to experience more Nasa APIs for space info! Perhaps setup if GraphQL, Apollo and MongoDB
+          Atlas for saving favorite images but only add if there's more use cases than just this.
         </p>
       </div>
       <div class="flex lg:w-6/12 w-full max-h-max justify-center items-center">

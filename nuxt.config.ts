@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/image",
     "@pinia/nuxt",
+    // '@nuxtjs/apollo',
   ],
   imports: {
     dirs: ["./stores"]
@@ -21,6 +22,14 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    // ToDo optimize images here
+    // ToDo optimize images here - look into this in nuxt docs
   },
+  // If you want to add graphql & mongodb continue this setup
+  // apollo: {
+  //   clients: {
+  //     default: {
+  //       httpEndpoint: 'https://spacex-production.up.railway.app'
+  //     }
+  //   },
+  // },
 });

@@ -39,7 +39,7 @@ imgArrStore.getImgDetailsAgain(nasa_id);
       <p>Issue getting image</p>
     </div>
     <div class="flex flex-1 flex-col gap-10 py-4">
-      <div class="flex flex-col py-2" v-if="selectedImgDetails">
+      <div class="flex flex-col" v-if="selectedImgDetails">
         <h1
           class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200"
         >
@@ -74,7 +74,7 @@ imgArrStore.getImgDetailsAgain(nasa_id);
           <p>Nasa ID: {{ nasa_id }}</p>
         </div>
       </div>
-      <div class="flex flex-col py-2" v-else-if="imgArrStore?.imgDetails">
+      <div class="flex flex-col" v-else-if="imgArrStore?.imgDetails">
         <h1
           class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200"
         >
