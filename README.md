@@ -1,5 +1,7 @@
 # nasa_space_images
 
+# This project if currently broken due to issues with NASA's API's may return to update once the issues from NASA are resolved.
+
 # Deployed on Vercel:
 Check out the current status of the deployed app [here](https://deep-space-seven.vercel.app/)
 
