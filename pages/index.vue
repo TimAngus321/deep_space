@@ -42,8 +42,13 @@
         </p>
       </div>
       <div class="flex lg:w-6/12 w-full max-h-max justify-center items-center">
+        <div v-if="apiError" class="flex flex-1 items-center justify-center p-8 text-center">
+          <p class="text-gray-500 dark:text-gray-400">
+            NASA's Daily Image API is currently unavailable. Please try again later or explore the Image Search feature.
+          </p>
+        </div>
         <div
-          v-if="isImg"
+          v-else-if="isImg && dailyImageVideo"
           class="flex flex-1 flex-wrap w-full max-h-max justify-center content-center"
         >
           <NuxtPicture
@@ -54,7 +59,7 @@
           />
         </div>
         <div
-          v-else
+          v-else-if="dailyImageVideo"
           class="flex flex-1 flex-wrap w-full h-full object-contain content-center"
         >
           <iframe
@@ -77,20 +82,27 @@
 const config = useRuntimeConfig();
 const apiKey: string = config.public.apiKey;
 const url: string = `https://api.nasa.gov/planetary/apod?api_key=`;
-let isImg: boolean = true;
+const isImg = ref(true);
+const apiError = ref(false);
 
-const { data: images }: any = await useFetch(`${url}${apiKey}`);
+const { data: images, error }: any = await useFetch(`${url}${apiKey}`, {
+  server: false,
+  lazy: true,
+});
 
-let dailyImageVideo: string = "";
+const dailyImageVideo = ref("");
 
-if (images._rawValue?.hdurl > 0) {
-  dailyImageVideo = images?._rawValue?.hdurl;
-} else {
-  dailyImageVideo = images?._rawValue?.url;
+if (error.value) {
+  apiError.value = true;
+  console.error("NASA APOD API error:", error.value);
+} else if (images.value?.hdurl) {
+  dailyImageVideo.value = images.value.hdurl;
+} else if (images.value?.url) {
+  dailyImageVideo.value = images.value.url;
 }
 
-if (images?._rawValue?.media_type === "video") {
-  isImg = false;
+if (images.value?.media_type === "video") {
+  isImg.value = false;
 }
 </script>
 
