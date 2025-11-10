@@ -24,6 +24,7 @@
     "@nuxtjs/color-mode": "^3.3.0",
     "@pinia/nuxt": "^0.5.1",
     "@yeger/vue-masonry-wall": "^5.0.3",
+    "caniuse-lite": "^1.0.30001754",
     "nuxt-icon": "^0.5.0",
     "sass": "^1.69.0",
     "vuetify": "next"
