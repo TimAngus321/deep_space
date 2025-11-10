@@ -1,6 +1,6 @@
 # nasa_space_images
 
-# This project if currently broken due to issues with NASA's API's may return to update once the issues from NASA are resolved.
+# This project has an issue with the the Picture of the day API (APOD API) due to issues with NASA's API's. Fix has been added but only to deal with errors from this API no new features will be added.
 
 # Deployed on Vercel:
 Check out the current status of the deployed app [here](https://deep-space-seven.vercel.app/)
